@@ -1,0 +1,52 @@
+{
+  "description": "SYNTHETIC OFFLINE SIMULATION: fictional companies, people, evidence and audit responses; not live research or acceptance evidence.",
+  "live_acceptance": false,
+  "network_requests": 0,
+  "checks": {
+    "six_stages_completed_in_simulation": true,
+    "unknown_budget_and_authority": true,
+    "ambiguous_quarter_preserved": true,
+    "priority_separate_from_completeness": true,
+    "all_research_areas": true,
+    "financial_scope_and_period": true,
+    "evidence_checks_clear": true,
+    "two_cases_compared": true,
+    "highest_supported_case_selected": true,
+    "own_iodine_scope_preserved": true,
+    "direct_ae_and_local_support": true,
+    "partner_capacity_not_assumed": true,
+    "five_distinct_email_branches": true,
+    "hypothetical_replies_not_fabricated": true,
+    "three_distinct_handoff_findings": true,
+    "handoff_matches_upstream": true,
+    "not_live_acceptance": true,
+    "no_provider_usage": true,
+    "export_matches_saved_run": true
+  },
+  "stages": [
+    {
+      "name": "Qualification",
+      "status": "complete"
+    },
+    {
+      "name": "Deep Account Research",
+      "status": "complete"
+    },
+    {
+      "name": "Response Generation",
+      "status": "complete"
+    },
+    {
+      "name": "Case Study and Material Matching",
+      "status": "complete"
+    },
+    {
+      "name": "Partner Identification",
+      "status": "complete"
+    },
+    {
+      "name": "AE Handoff Summary",
+      "status": "complete"
+    }
+  ]
+}

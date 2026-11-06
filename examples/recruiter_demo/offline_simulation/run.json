@@ -1,0 +1,3841 @@
+{
+  "run_id": "offline_simulation",
+  "mode": "offline_test",
+  "started_at": "2026-11-04T12:17:28.666251+00:00",
+  "finished_at": "2026-11-04T12:17:28.956998+00:00",
+  "as_of_date": "2026-11-04",
+  "input": "From: Elena Morales (elena@amx.example)\nTitle: Head of Northern Operations\nCompany: Altiplano Minerals (AMX), Chile\nSubject: Autonomous inspection for three lithium sites\nContext: Looking for drone-based inspection for 3 large-scale, 24/7 lithium extraction sites. Contracted crews are expensive and hazardous. Referred by Cordillera Copper. Internal budget conversation scheduled for Q3.\n",
+  "config": {
+    "groq_model": "openai/gpt-oss-120b",
+    "compact_account_research": true,
+    "project_max_groq_tokens": 40000,
+    "project_max_tavily_credits": 40,
+    "timeout_seconds": 90,
+    "max_retries": 1,
+    "max_output_tokens": 2600,
+    "groq_tpm": 8000,
+    "groq_rpm": 25,
+    "max_request_tokens": 7500,
+    "max_api_requests": 24,
+    "max_total_input_tokens": 65000,
+    "max_total_output_tokens": 35000,
+    "max_search_requests": 10,
+    "max_extract_requests": 5,
+    "max_tavily_credits": 16,
+    "tavily_rpm": 30,
+    "max_results_per_query": 3,
+    "max_source_fetches": 15,
+    "max_source_chars": 12000,
+    "evidence_chars_per_source": 1800,
+    "evidence_chars_per_request": 6000,
+    "max_retry_after_seconds": 90,
+    "runs_dir": "examples/recruiter_demo"
+  },
+  "status": "complete",
+  "stages": [
+    {
+      "name": "Qualification",
+      "status": "complete",
+      "started_at": "2026-11-04T12:17:28.668302+00:00",
+      "finished_at": "2026-11-04T12:17:28.673466+00:00",
+      "elapsed_seconds": 0.01,
+      "output": {
+        "framework": "BANT",
+        "framework_rationale": "BANT is a compact first-contact checklist for Budget, Authority, Need and Timeline. It exposes gaps without blocking a promising discovery call. Enterprise discovery must still establish stakeholders, procurement, technical feasibility and measurable success criteria.",
+        "lead": {
+          "name": "Elena Morales",
+          "email": "elena@amx.example",
+          "title": "Head of Northern Operations",
+          "company": "Altiplano Minerals (AMX)",
+          "domain": "amx.example",
+          "geography": "Chile",
+          "industry": "mining",
+          "need": "Looking for drone-based inspection for 3 large-scale, 24/7 lithium extraction sites",
+          "referral": "Cordillera Copper",
+          "knowns": [
+            "Looking for drone-based inspection for 3 large-scale, 24/7 lithium extraction sites"
+          ],
+          "budget": {
+            "status": "unknown",
+            "evidence": [],
+            "uncertainty": "Not established by the enquiry.",
+            "questions": [
+              "Is there approved project funding or only a budget discussion?"
+            ]
+          },
+          "authority": {
+            "status": "unknown",
+            "evidence": [],
+            "uncertainty": "Not established by the enquiry.",
+            "questions": [
+              "Who owns the business case and final purchasing approval?"
+            ]
+          },
+          "need_dimension": {
+            "status": "confirmed",
+            "evidence": [
+              "Looking for drone-based inspection for 3 large-scale, 24/7 lithium extraction sites"
+            ],
+            "uncertainty": "Technical feasibility remains unverified.",
+            "questions": [
+              "Which inspections and acceptance criteria matter most?"
+            ]
+          },
+          "timeline": {
+            "status": "ambiguous",
+            "evidence": [],
+            "uncertainty": "Quarter supplied without a year; no deadline inferred from the run date.",
+            "questions": [
+              "Which year does the stated quarter refer to, and is that a budget discussion or deployment target?",
+              "Which year is Q3, and when would a pilot decision be made?"
+            ]
+          },
+          "signals": [
+            {
+              "code": "need_fit",
+              "quote": "Looking for drone-based inspection for 3 large-scale, 24/7 lithium extraction sites"
+            },
+            {
+              "code": "operational_pain",
+              "quote": "Contracted crews are expensive and hazardous"
+            },
+            {
+              "code": "multiple_sites",
+              "quote": "3 large-scale"
+            },
+            {
+              "code": "continuous_operations",
+              "quote": "24/7"
+            },
+            {
+              "code": "senior_role",
+              "quote": "Head of Northern Operations"
+            },
+            {
+              "code": "referral",
+              "quote": "Referred by Cordillera Copper"
+            }
+          ],
+          "fit": "promising",
+          "fit_reason": "Explicit operational pain and multi-site inspection need; discovery still required."
+        },
+        "priority_score": 80,
+        "priority_band": "prompt discovery",
+        "priority_explanation": "An engagement priority, not a purchase probability. Unknowns earn no points and are not negative evidence.",
+        "qualification_completeness_percent": 25,
+        "completeness_explanation": "25 points per dimension explicitly established, positively or negatively; ambiguous/unknown dimensions earn zero.",
+        "score_breakdown": [
+          {
+            "signal": "need_fit",
+            "points": 25,
+            "quote": "Looking for drone-based inspection for 3 large-scale, 24/7 lithium extraction sites"
+          },
+          {
+            "signal": "operational_pain",
+            "points": 20,
+            "quote": "Contracted crews are expensive and hazardous"
+          },
+          {
+            "signal": "multiple_sites",
+            "points": 10,
+            "quote": "3 large-scale"
+          },
+          {
+            "signal": "continuous_operations",
+            "points": 10,
+            "quote": "24/7"
+          },
+          {
+            "signal": "senior_role",
+            "points": 10,
+            "quote": "Head of Northern Operations"
+          },
+          {
+            "signal": "referral",
+            "points": 5,
+            "quote": "Referred by Cordillera Copper"
+          }
+        ],
+        "rubric": {
+          "need_fit": 25,
+          "operational_pain": 20,
+          "multiple_sites": 10,
+          "continuous_operations": 10,
+          "senior_role": 10,
+          "referral": 5,
+          "approved_budget": 10,
+          "confirmed_authority": 5,
+          "dated_timeline": 5
+        }
+      },
+      "warnings": [],
+      "execution_origin": "offline test fixture"
+    },
+    {
+      "name": "Deep Account Research",
+      "status": "complete",
+      "started_at": "2026-11-04T12:17:28.675994+00:00",
+      "finished_at": "2026-11-04T12:17:28.705050+00:00",
+      "elapsed_seconds": 0.03,
+      "output": {
+        "topics": [
+          {
+            "name": "Organisation and reporting lines",
+            "claims": [
+              {
+                "text": "AMX has separate Northern Operations and Industrial Products divisions.",
+                "kind": "public",
+                "evidence": [
+                  {
+                    "source_id": "S_bfb758c8161e",
+                    "quote": "AMX has separate Northern Operations and Industrial Products divisions."
+                  }
+                ],
+                "input_quote": "",
+                "uncertainty": "",
+                "financial_context": null,
+                "event_date": ""
+              }
+            ],
+            "gaps": []
+          },
+          {
+            "name": "Budget and investment signals",
+            "claims": [
+              {
+                "text": "AMX FY2025 group capital expenditure was USD 420 million and operating expenses were USD 910 million.",
+                "kind": "public",
+                "evidence": [
+                  {
+                    "source_id": "S_8e054451f559",
+                    "quote": "AMX FY2025 group capital expenditure was USD 420 million and operating expenses were USD 910 million."
+                  }
+                ],
+                "input_quote": "",
+                "uncertainty": "",
+                "financial_context": {
+                  "currency": "USD",
+                  "units": "million",
+                  "reporting_period": "FY2025",
+                  "publication_date": "2026-02-18",
+                  "scope": "group-wide spending, no drone project budget"
+                },
+                "event_date": ""
+              },
+              {
+                "text": "The FY2025 technology programme invested USD 12 million in remote condition monitoring.",
+                "kind": "public",
+                "evidence": [
+                  {
+                    "source_id": "S_8e054451f559",
+                    "quote": "The FY2025 technology programme invested USD 12 million in remote condition monitoring."
+                  }
+                ],
+                "input_quote": "",
+                "uncertainty": "",
+                "financial_context": {
+                  "currency": "USD",
+                  "units": "million",
+                  "reporting_period": "FY2025",
+                  "publication_date": "2026-02-18",
+                  "scope": "group technology programme, no drone project allocation"
+                },
+                "event_date": ""
+              }
+            ],
+            "gaps": []
+          },
+          {
+            "name": "News and strategic announcements",
+            "claims": [
+              {
+                "text": "AMX announced a remote condition-monitoring programme on 10 June 2026.",
+                "kind": "public",
+                "evidence": [
+                  {
+                    "source_id": "S_76c18676528a",
+                    "quote": "AMX announced a remote condition-monitoring programme on 10 June 2026."
+                  }
+                ],
+                "input_quote": "",
+                "uncertainty": "",
+                "financial_context": null,
+                "event_date": ""
+              }
+            ],
+            "gaps": []
+          },
+          {
+            "name": "Investor priorities",
+            "claims": [
+              {
+                "text": "Investor priorities are safer operations and disciplined expansion.",
+                "kind": "public",
+                "evidence": [
+                  {
+                    "source_id": "S_8e054451f559",
+                    "quote": "Investor priorities are safer operations and disciplined expansion."
+                  }
+                ],
+                "input_quote": "",
+                "uncertainty": "",
+                "financial_context": null,
+                "event_date": ""
+              }
+            ],
+            "gaps": []
+          },
+          {
+            "name": "Corporate changes and customer relationships",
+            "claims": [
+              {
+                "text": "Northern Operations remains a separate division; no merger or ownership change is described in this update.",
+                "kind": "public",
+                "evidence": [
+                  {
+                    "source_id": "S_76c18676528a",
+                    "quote": "Northern Operations remains a separate division; no merger or ownership change is described in this update."
+                  }
+                ],
+                "input_quote": "",
+                "uncertainty": "",
+                "financial_context": null,
+                "event_date": ""
+              }
+            ],
+            "gaps": []
+          }
+        ],
+        "positioning": [
+          {
+            "text": "Position a discovery-led reliability pilot with explicit site acceptance criteria; company spending is only a signal.",
+            "kind": "inference",
+            "evidence": [],
+            "input_quote": "",
+            "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+            "financial_context": null,
+            "event_date": ""
+          }
+        ],
+        "stakeholder_hypothesis": [
+          {
+            "text": "Operations may sponsor the business case alongside reliability, IT and procurement; Elena's manager and approval authority remain unknown.",
+            "kind": "inference",
+            "evidence": [],
+            "input_quote": "",
+            "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+            "financial_context": null,
+            "event_date": ""
+          }
+        ],
+        "conflicts": [],
+        "groundedness": {
+          "mechanical_and_semantic_findings": [],
+          "semantic_review": "performed",
+          "limitation": "Automated checks flag risks; they do not guarantee factual truth."
+        }
+      },
+      "warnings": [],
+      "execution_origin": "offline test fixture"
+    },
+    {
+      "name": "Response Generation",
+      "status": "complete",
+      "started_at": "2026-11-04T12:17:28.845258+00:00",
+      "finished_at": "2026-11-04T12:17:28.898314+00:00",
+      "elapsed_seconds": 0.05,
+      "output": {
+        "drafts": [
+          {
+            "branch": "initial",
+            "subject": "Your three-site inspection enquiry",
+            "paragraphs": [
+              {
+                "text": "Thank you, Elena. Reducing hazardous inspection work across three continuously operating sites is a useful discovery starting point.",
+                "kind": "inference",
+                "evidence": [],
+                "input_quote": "",
+                "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                "financial_context": null,
+                "event_date": ""
+              },
+              {
+                "text": "Investor priorities are safer operations and disciplined expansion.",
+                "kind": "public",
+                "evidence": [
+                  {
+                    "source_id": "S_8e054451f559",
+                    "quote": "Investor priorities are safer operations and disciplined expansion."
+                  }
+                ],
+                "input_quote": "",
+                "uncertainty": "",
+                "financial_context": null,
+                "event_date": ""
+              },
+              {
+                "text": "Could we schedule 20 minutes to identify the pilot owner and clarify which year Q3 refers to?",
+                "kind": "inference",
+                "evidence": [],
+                "input_quote": "",
+                "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                "financial_context": null,
+                "event_date": ""
+              }
+            ],
+            "trigger": "New inbound enquiry",
+            "why_this_message": "Open with operational priorities and two buying-process unknowns.",
+            "if_buyer_responds": "Replace the hypothetical branch with their actual information; update discovery questions and schedule the agreed next step.",
+            "hypothetical": false
+          },
+          {
+            "branch": "no_reply",
+            "subject": "A focused inspection discovery call",
+            "paragraphs": [
+              {
+                "text": "Following up on your inspection enquiry: which recurring inspection would be most useful to review first?",
+                "kind": "inference",
+                "evidence": [],
+                "input_quote": "",
+                "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                "financial_context": null,
+                "event_date": ""
+              },
+              {
+                "text": "Investor priorities are safer operations and disciplined expansion.",
+                "kind": "public",
+                "evidence": [
+                  {
+                    "source_id": "S_8e054451f559",
+                    "quote": "Investor priorities are safer operations and disciplined expansion."
+                  }
+                ],
+                "input_quote": "",
+                "uncertainty": "",
+                "financial_context": null,
+                "event_date": ""
+              },
+              {
+                "text": "If helpful, I can send a short discovery agenda before we choose a time.",
+                "kind": "inference",
+                "evidence": [],
+                "input_quote": "",
+                "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                "financial_context": null,
+                "event_date": ""
+              }
+            ],
+            "trigger": "Hypothetical: five business days without a reply",
+            "why_this_message": "Offer a smaller next step without claiming a response.",
+            "if_buyer_responds": "Replace the hypothetical branch with their actual information; update discovery questions and schedule the agreed next step.",
+            "hypothetical": true
+          },
+          {
+            "branch": "interested",
+            "subject": "Agenda for an inspection discussion",
+            "paragraphs": [
+              {
+                "text": "For a discussion, I suggest reviewing inspection tasks, connectivity, safety constraints and pilot acceptance criteria.",
+                "kind": "inference",
+                "evidence": [],
+                "input_quote": "",
+                "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                "financial_context": null,
+                "event_date": ""
+              },
+              {
+                "text": "Investor priorities are safer operations and disciplined expansion.",
+                "kind": "public",
+                "evidence": [
+                  {
+                    "source_id": "S_8e054451f559",
+                    "quote": "Investor priorities are safer operations and disciplined expansion."
+                  }
+                ],
+                "input_quote": "",
+                "uncertainty": "",
+                "financial_context": null,
+                "event_date": ""
+              },
+              {
+                "text": "Who from reliability and IT should join, and which time suits you?",
+                "kind": "inference",
+                "evidence": [],
+                "input_quote": "",
+                "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                "financial_context": null,
+                "event_date": ""
+              }
+            ],
+            "trigger": "Hypothetical: buyer expresses interest in a discussion",
+            "why_this_message": "Turn interest into a concrete discovery meeting.",
+            "if_buyer_responds": "Replace the hypothetical branch with their actual information; update discovery questions and schedule the agreed next step.",
+            "hypothetical": true
+          },
+          {
+            "branch": "budget_clarification",
+            "subject": "Aligning discovery with your budget process",
+            "paragraphs": [
+              {
+                "text": "We can align technical discovery with your budget discussion without assuming project approval.",
+                "kind": "inference",
+                "evidence": [],
+                "input_quote": "",
+                "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                "financial_context": null,
+                "event_date": ""
+              },
+              {
+                "text": "Investor priorities are safer operations and disciplined expansion.",
+                "kind": "public",
+                "evidence": [
+                  {
+                    "source_id": "S_8e054451f559",
+                    "quote": "Investor priorities are safer operations and disciplined expansion."
+                  }
+                ],
+                "input_quote": "",
+                "uncertainty": "",
+                "financial_context": null,
+                "event_date": ""
+              },
+              {
+                "text": "Which year and approval milestone should we work toward, and who owns the business case?",
+                "kind": "inference",
+                "evidence": [],
+                "input_quote": "",
+                "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                "financial_context": null,
+                "event_date": ""
+              }
+            ],
+            "trigger": "Hypothetical: buyer clarifies budget timing but funding is unapproved",
+            "why_this_message": "Respect the buying process without treating a meeting as funding.",
+            "if_buyer_responds": "Replace the hypothetical branch with their actual information; update discovery questions and schedule the agreed next step.",
+            "hypothetical": true
+          },
+          {
+            "branch": "stakeholder_referral",
+            "subject": "Connecting with the inspection project owner",
+            "paragraphs": [
+              {
+                "text": "If another colleague owns inspection transformation, I can share a short summary of the three-site need for an introduction.",
+                "kind": "inference",
+                "evidence": [],
+                "input_quote": "",
+                "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                "financial_context": null,
+                "event_date": ""
+              },
+              {
+                "text": "Investor priorities are safer operations and disciplined expansion.",
+                "kind": "public",
+                "evidence": [
+                  {
+                    "source_id": "S_8e054451f559",
+                    "quote": "Investor priorities are safer operations and disciplined expansion."
+                  }
+                ],
+                "input_quote": "",
+                "uncertainty": "",
+                "financial_context": null,
+                "event_date": ""
+              },
+              {
+                "text": "Would you introduce the project owner so we can confirm pilot scope and the decision process?",
+                "kind": "inference",
+                "evidence": [],
+                "input_quote": "",
+                "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                "financial_context": null,
+                "event_date": ""
+              }
+            ],
+            "trigger": "Hypothetical: buyer refers us to another stakeholder",
+            "why_this_message": "Establish ownership without inventing the referred person's identity.",
+            "if_buyer_responds": "Replace the hypothetical branch with their actual information; update discovery questions and schedule the agreed next step.",
+            "hypothetical": true
+          }
+        ],
+        "limitations": [],
+        "groundedness": {
+          "mechanical_and_semantic_findings": [],
+          "semantic_review": "performed",
+          "limitation": "Automated checks flag risks; they do not guarantee factual truth."
+        }
+      },
+      "warnings": [],
+      "execution_origin": "offline test fixture"
+    },
+    {
+      "name": "Case Study and Material Matching",
+      "status": "complete",
+      "started_at": "2026-11-04T12:17:28.712059+00:00",
+      "finished_at": "2026-11-04T12:17:28.747150+00:00",
+      "elapsed_seconds": 0.04,
+      "output": {
+        "candidates": [
+          {
+            "title": "SYNTHETIC: AMX iodine inspection",
+            "source_id": "S_1d6dedcd234c",
+            "dimensions": [
+              {
+                "dimension": "industry",
+                "matched": true,
+                "rationale": {
+                  "text": "Potential similarity on industry.",
+                  "kind": "inference",
+                  "evidence": [
+                    {
+                      "source_id": "S_1d6dedcd234c",
+                      "quote": "AMX uses FlytBase thermal inspection at its iodine operations in Chile."
+                    }
+                  ],
+                  "input_quote": "",
+                  "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                  "financial_context": null,
+                  "event_date": ""
+                }
+              },
+              {
+                "dimension": "use_case",
+                "matched": true,
+                "rationale": {
+                  "text": "Potential similarity on use case.",
+                  "kind": "inference",
+                  "evidence": [
+                    {
+                      "source_id": "S_1d6dedcd234c",
+                      "quote": "AMX uses FlytBase thermal inspection at its iodine operations in Chile."
+                    }
+                  ],
+                  "input_quote": "",
+                  "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                  "financial_context": null,
+                  "event_date": ""
+                }
+              },
+              {
+                "dimension": "operating_context",
+                "matched": false,
+                "rationale": {
+                  "text": "Potential similarity on operating context.",
+                  "kind": "inference",
+                  "evidence": [
+                    {
+                      "source_id": "S_1d6dedcd234c",
+                      "quote": "AMX uses FlytBase thermal inspection at its iodine operations in Chile."
+                    }
+                  ],
+                  "input_quote": "",
+                  "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                  "financial_context": null,
+                  "event_date": ""
+                }
+              },
+              {
+                "dimension": "geography",
+                "matched": true,
+                "rationale": {
+                  "text": "Potential similarity on geography.",
+                  "kind": "inference",
+                  "evidence": [
+                    {
+                      "source_id": "S_1d6dedcd234c",
+                      "quote": "AMX uses FlytBase thermal inspection at its iodine operations in Chile."
+                    }
+                  ],
+                  "input_quote": "",
+                  "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                  "financial_context": null,
+                  "event_date": ""
+                }
+              },
+              {
+                "dimension": "referral",
+                "matched": false,
+                "rationale": {
+                  "text": "Potential similarity on referral.",
+                  "kind": "inference",
+                  "evidence": [
+                    {
+                      "source_id": "S_1d6dedcd234c",
+                      "quote": "AMX uses FlytBase thermal inspection at its iodine operations in Chile."
+                    }
+                  ],
+                  "input_quote": "",
+                  "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                  "financial_context": null,
+                  "event_date": ""
+                }
+              },
+              {
+                "dimension": "same_company",
+                "matched": true,
+                "rationale": {
+                  "text": "Potential similarity on same company.",
+                  "kind": "inference",
+                  "evidence": [
+                    {
+                      "source_id": "S_1d6dedcd234c",
+                      "quote": "AMX uses FlytBase thermal inspection at its iodine operations in Chile."
+                    }
+                  ],
+                  "input_quote": "",
+                  "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                  "financial_context": null,
+                  "event_date": ""
+                }
+              }
+            ],
+            "relevance": {
+              "text": "A relevant industrial inspection comparison; transfer requires technical discovery.",
+              "kind": "inference",
+              "evidence": [
+                {
+                  "source_id": "S_1d6dedcd234c",
+                  "quote": "AMX uses FlytBase thermal inspection at its iodine operations in Chile."
+                }
+              ],
+              "input_quote": "",
+              "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+              "financial_context": null,
+              "event_date": ""
+            },
+            "limitations": [
+              "Fictional evidence only; a different mineral, site or outcome does not establish lithium feasibility."
+            ],
+            "own_company_expansion_assessment": "AMX iodine deployment does not establish lithium-site coverage; confirm whether this is an expansion."
+          },
+          {
+            "title": "SYNTHETIC: Cordillera Copper inspection",
+            "source_id": "S_c42e69ffd517",
+            "dimensions": [
+              {
+                "dimension": "industry",
+                "matched": true,
+                "rationale": {
+                  "text": "Potential similarity on industry.",
+                  "kind": "inference",
+                  "evidence": [
+                    {
+                      "source_id": "S_c42e69ffd517",
+                      "quote": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile. The mine operates in dusty desert conditions."
+                    }
+                  ],
+                  "input_quote": "",
+                  "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                  "financial_context": null,
+                  "event_date": ""
+                }
+              },
+              {
+                "dimension": "use_case",
+                "matched": true,
+                "rationale": {
+                  "text": "Potential similarity on use case.",
+                  "kind": "inference",
+                  "evidence": [
+                    {
+                      "source_id": "S_c42e69ffd517",
+                      "quote": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile. The mine operates in dusty desert conditions."
+                    }
+                  ],
+                  "input_quote": "",
+                  "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                  "financial_context": null,
+                  "event_date": ""
+                }
+              },
+              {
+                "dimension": "operating_context",
+                "matched": true,
+                "rationale": {
+                  "text": "Potential similarity on operating context.",
+                  "kind": "inference",
+                  "evidence": [
+                    {
+                      "source_id": "S_c42e69ffd517",
+                      "quote": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile. The mine operates in dusty desert conditions."
+                    }
+                  ],
+                  "input_quote": "",
+                  "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                  "financial_context": null,
+                  "event_date": ""
+                }
+              },
+              {
+                "dimension": "geography",
+                "matched": true,
+                "rationale": {
+                  "text": "Potential similarity on geography.",
+                  "kind": "inference",
+                  "evidence": [
+                    {
+                      "source_id": "S_c42e69ffd517",
+                      "quote": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile. The mine operates in dusty desert conditions."
+                    }
+                  ],
+                  "input_quote": "",
+                  "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                  "financial_context": null,
+                  "event_date": ""
+                }
+              },
+              {
+                "dimension": "referral",
+                "matched": true,
+                "rationale": {
+                  "text": "Potential similarity on referral.",
+                  "kind": "inference",
+                  "evidence": [
+                    {
+                      "source_id": "S_c42e69ffd517",
+                      "quote": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile. The mine operates in dusty desert conditions."
+                    }
+                  ],
+                  "input_quote": "",
+                  "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                  "financial_context": null,
+                  "event_date": ""
+                }
+              },
+              {
+                "dimension": "same_company",
+                "matched": false,
+                "rationale": {
+                  "text": "Potential similarity on same company.",
+                  "kind": "inference",
+                  "evidence": [
+                    {
+                      "source_id": "S_c42e69ffd517",
+                      "quote": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile. The mine operates in dusty desert conditions."
+                    }
+                  ],
+                  "input_quote": "",
+                  "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                  "financial_context": null,
+                  "event_date": ""
+                }
+              }
+            ],
+            "relevance": {
+              "text": "A relevant industrial inspection comparison; transfer requires technical discovery.",
+              "kind": "inference",
+              "evidence": [
+                {
+                  "source_id": "S_c42e69ffd517",
+                  "quote": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile. The mine operates in dusty desert conditions."
+                }
+              ],
+              "input_quote": "",
+              "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+              "financial_context": null,
+              "event_date": ""
+            },
+            "limitations": [
+              "Fictional evidence only; a different mineral, site or outcome does not establish lithium feasibility."
+            ],
+            "own_company_expansion_assessment": "AMX iodine deployment does not establish lithium-site coverage; confirm whether this is an expansion."
+          }
+        ],
+        "referral_findings": [
+          {
+            "text": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile.",
+            "kind": "public",
+            "evidence": [
+              {
+                "source_id": "S_c42e69ffd517",
+                "quote": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile."
+              }
+            ],
+            "input_quote": "",
+            "uncertainty": "",
+            "financial_context": null,
+            "event_date": ""
+          }
+        ],
+        "gaps": [],
+        "rubric": {
+          "industry": 25,
+          "use_case": 30,
+          "operating_context": 15,
+          "geography": 10,
+          "referral": 10,
+          "same_company": 10
+        },
+        "comparison": [
+          {
+            "candidate": {
+              "title": "SYNTHETIC: AMX iodine inspection",
+              "source_id": "S_1d6dedcd234c",
+              "dimensions": [
+                {
+                  "dimension": "industry",
+                  "matched": true,
+                  "rationale": {
+                    "text": "Potential similarity on industry.",
+                    "kind": "inference",
+                    "evidence": [
+                      {
+                        "source_id": "S_1d6dedcd234c",
+                        "quote": "AMX uses FlytBase thermal inspection at its iodine operations in Chile."
+                      }
+                    ],
+                    "input_quote": "",
+                    "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                    "financial_context": null,
+                    "event_date": ""
+                  }
+                },
+                {
+                  "dimension": "use_case",
+                  "matched": true,
+                  "rationale": {
+                    "text": "Potential similarity on use case.",
+                    "kind": "inference",
+                    "evidence": [
+                      {
+                        "source_id": "S_1d6dedcd234c",
+                        "quote": "AMX uses FlytBase thermal inspection at its iodine operations in Chile."
+                      }
+                    ],
+                    "input_quote": "",
+                    "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                    "financial_context": null,
+                    "event_date": ""
+                  }
+                },
+                {
+                  "dimension": "operating_context",
+                  "matched": false,
+                  "rationale": {
+                    "text": "Potential similarity on operating context.",
+                    "kind": "inference",
+                    "evidence": [
+                      {
+                        "source_id": "S_1d6dedcd234c",
+                        "quote": "AMX uses FlytBase thermal inspection at its iodine operations in Chile."
+                      }
+                    ],
+                    "input_quote": "",
+                    "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                    "financial_context": null,
+                    "event_date": ""
+                  }
+                },
+                {
+                  "dimension": "geography",
+                  "matched": true,
+                  "rationale": {
+                    "text": "Potential similarity on geography.",
+                    "kind": "inference",
+                    "evidence": [
+                      {
+                        "source_id": "S_1d6dedcd234c",
+                        "quote": "AMX uses FlytBase thermal inspection at its iodine operations in Chile."
+                      }
+                    ],
+                    "input_quote": "",
+                    "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                    "financial_context": null,
+                    "event_date": ""
+                  }
+                },
+                {
+                  "dimension": "referral",
+                  "matched": false,
+                  "rationale": {
+                    "text": "Potential similarity on referral.",
+                    "kind": "inference",
+                    "evidence": [
+                      {
+                        "source_id": "S_1d6dedcd234c",
+                        "quote": "AMX uses FlytBase thermal inspection at its iodine operations in Chile."
+                      }
+                    ],
+                    "input_quote": "",
+                    "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                    "financial_context": null,
+                    "event_date": ""
+                  }
+                },
+                {
+                  "dimension": "same_company",
+                  "matched": true,
+                  "rationale": {
+                    "text": "Potential similarity on same company.",
+                    "kind": "inference",
+                    "evidence": [
+                      {
+                        "source_id": "S_1d6dedcd234c",
+                        "quote": "AMX uses FlytBase thermal inspection at its iodine operations in Chile."
+                      }
+                    ],
+                    "input_quote": "",
+                    "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                    "financial_context": null,
+                    "event_date": ""
+                  }
+                }
+              ],
+              "relevance": {
+                "text": "A relevant industrial inspection comparison; transfer requires technical discovery.",
+                "kind": "inference",
+                "evidence": [
+                  {
+                    "source_id": "S_1d6dedcd234c",
+                    "quote": "AMX uses FlytBase thermal inspection at its iodine operations in Chile."
+                  }
+                ],
+                "input_quote": "",
+                "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                "financial_context": null,
+                "event_date": ""
+              },
+              "limitations": [
+                "Fictional evidence only; a different mineral, site or outcome does not establish lithium feasibility."
+              ],
+              "own_company_expansion_assessment": "An inspected FlytBase source indicates possible adoption elsewhere in the company. Confirm which division/site uses FlytBase before treating these requested sites as an expansion. See source registry and original model proposal for evidence/limitations."
+            },
+            "score": 75,
+            "breakdown": {
+              "industry": 25,
+              "use_case": 30,
+              "operating_context": 0,
+              "geography": 10,
+              "referral": 0,
+              "same_company": 10
+            },
+            "eligible": true,
+            "rejection_reasons": [],
+            "excluded_dimensions": [],
+            "selection_note": "An excluded dimension contributes zero and its unverified rationale is withheld; consult raw proposals/audit before sharing."
+          },
+          {
+            "candidate": {
+              "title": "SYNTHETIC: Cordillera Copper inspection",
+              "source_id": "S_c42e69ffd517",
+              "dimensions": [
+                {
+                  "dimension": "industry",
+                  "matched": true,
+                  "rationale": {
+                    "text": "Potential similarity on industry.",
+                    "kind": "inference",
+                    "evidence": [
+                      {
+                        "source_id": "S_c42e69ffd517",
+                        "quote": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile. The mine operates in dusty desert conditions."
+                      }
+                    ],
+                    "input_quote": "",
+                    "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                    "financial_context": null,
+                    "event_date": ""
+                  }
+                },
+                {
+                  "dimension": "use_case",
+                  "matched": true,
+                  "rationale": {
+                    "text": "Potential similarity on use case.",
+                    "kind": "inference",
+                    "evidence": [
+                      {
+                        "source_id": "S_c42e69ffd517",
+                        "quote": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile. The mine operates in dusty desert conditions."
+                      }
+                    ],
+                    "input_quote": "",
+                    "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                    "financial_context": null,
+                    "event_date": ""
+                  }
+                },
+                {
+                  "dimension": "operating_context",
+                  "matched": true,
+                  "rationale": {
+                    "text": "Potential similarity on operating context.",
+                    "kind": "inference",
+                    "evidence": [
+                      {
+                        "source_id": "S_c42e69ffd517",
+                        "quote": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile. The mine operates in dusty desert conditions."
+                      }
+                    ],
+                    "input_quote": "",
+                    "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                    "financial_context": null,
+                    "event_date": ""
+                  }
+                },
+                {
+                  "dimension": "geography",
+                  "matched": true,
+                  "rationale": {
+                    "text": "Potential similarity on geography.",
+                    "kind": "inference",
+                    "evidence": [
+                      {
+                        "source_id": "S_c42e69ffd517",
+                        "quote": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile. The mine operates in dusty desert conditions."
+                      }
+                    ],
+                    "input_quote": "",
+                    "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                    "financial_context": null,
+                    "event_date": ""
+                  }
+                },
+                {
+                  "dimension": "referral",
+                  "matched": true,
+                  "rationale": {
+                    "text": "Potential similarity on referral.",
+                    "kind": "inference",
+                    "evidence": [
+                      {
+                        "source_id": "S_c42e69ffd517",
+                        "quote": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile. The mine operates in dusty desert conditions."
+                      }
+                    ],
+                    "input_quote": "",
+                    "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                    "financial_context": null,
+                    "event_date": ""
+                  }
+                },
+                {
+                  "dimension": "same_company",
+                  "matched": false,
+                  "rationale": {
+                    "text": "Potential similarity on same company.",
+                    "kind": "inference",
+                    "evidence": [
+                      {
+                        "source_id": "S_c42e69ffd517",
+                        "quote": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile. The mine operates in dusty desert conditions."
+                      }
+                    ],
+                    "input_quote": "",
+                    "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                    "financial_context": null,
+                    "event_date": ""
+                  }
+                }
+              ],
+              "relevance": {
+                "text": "A relevant industrial inspection comparison; transfer requires technical discovery.",
+                "kind": "inference",
+                "evidence": [
+                  {
+                    "source_id": "S_c42e69ffd517",
+                    "quote": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile. The mine operates in dusty desert conditions."
+                  }
+                ],
+                "input_quote": "",
+                "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                "financial_context": null,
+                "event_date": ""
+              },
+              "limitations": [
+                "Fictional evidence only; a different mineral, site or outcome does not establish lithium feasibility."
+              ],
+              "own_company_expansion_assessment": "An inspected FlytBase source indicates possible adoption elsewhere in the company. Confirm which division/site uses FlytBase before treating these requested sites as an expansion. See source registry and original model proposal for evidence/limitations."
+            },
+            "score": 90,
+            "breakdown": {
+              "industry": 25,
+              "use_case": 30,
+              "operating_context": 15,
+              "geography": 10,
+              "referral": 10,
+              "same_company": 0
+            },
+            "eligible": true,
+            "rejection_reasons": [],
+            "excluded_dimensions": [],
+            "selection_note": "An excluded dimension contributes zero and its unverified rationale is withheld; consult raw proposals/audit before sharing."
+          }
+        ],
+        "primary": {
+          "candidate": {
+            "title": "SYNTHETIC: Cordillera Copper inspection",
+            "source_id": "S_c42e69ffd517",
+            "dimensions": [
+              {
+                "dimension": "industry",
+                "matched": true,
+                "rationale": {
+                  "text": "Potential similarity on industry.",
+                  "kind": "inference",
+                  "evidence": [
+                    {
+                      "source_id": "S_c42e69ffd517",
+                      "quote": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile. The mine operates in dusty desert conditions."
+                    }
+                  ],
+                  "input_quote": "",
+                  "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                  "financial_context": null,
+                  "event_date": ""
+                }
+              },
+              {
+                "dimension": "use_case",
+                "matched": true,
+                "rationale": {
+                  "text": "Potential similarity on use case.",
+                  "kind": "inference",
+                  "evidence": [
+                    {
+                      "source_id": "S_c42e69ffd517",
+                      "quote": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile. The mine operates in dusty desert conditions."
+                    }
+                  ],
+                  "input_quote": "",
+                  "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                  "financial_context": null,
+                  "event_date": ""
+                }
+              },
+              {
+                "dimension": "operating_context",
+                "matched": true,
+                "rationale": {
+                  "text": "Potential similarity on operating context.",
+                  "kind": "inference",
+                  "evidence": [
+                    {
+                      "source_id": "S_c42e69ffd517",
+                      "quote": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile. The mine operates in dusty desert conditions."
+                    }
+                  ],
+                  "input_quote": "",
+                  "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                  "financial_context": null,
+                  "event_date": ""
+                }
+              },
+              {
+                "dimension": "geography",
+                "matched": true,
+                "rationale": {
+                  "text": "Potential similarity on geography.",
+                  "kind": "inference",
+                  "evidence": [
+                    {
+                      "source_id": "S_c42e69ffd517",
+                      "quote": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile. The mine operates in dusty desert conditions."
+                    }
+                  ],
+                  "input_quote": "",
+                  "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                  "financial_context": null,
+                  "event_date": ""
+                }
+              },
+              {
+                "dimension": "referral",
+                "matched": true,
+                "rationale": {
+                  "text": "Potential similarity on referral.",
+                  "kind": "inference",
+                  "evidence": [
+                    {
+                      "source_id": "S_c42e69ffd517",
+                      "quote": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile. The mine operates in dusty desert conditions."
+                    }
+                  ],
+                  "input_quote": "",
+                  "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                  "financial_context": null,
+                  "event_date": ""
+                }
+              },
+              {
+                "dimension": "same_company",
+                "matched": false,
+                "rationale": {
+                  "text": "Potential similarity on same company.",
+                  "kind": "inference",
+                  "evidence": [
+                    {
+                      "source_id": "S_c42e69ffd517",
+                      "quote": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile. The mine operates in dusty desert conditions."
+                    }
+                  ],
+                  "input_quote": "",
+                  "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                  "financial_context": null,
+                  "event_date": ""
+                }
+              }
+            ],
+            "relevance": {
+              "text": "A relevant industrial inspection comparison; transfer requires technical discovery.",
+              "kind": "inference",
+              "evidence": [
+                {
+                  "source_id": "S_c42e69ffd517",
+                  "quote": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile. The mine operates in dusty desert conditions."
+                }
+              ],
+              "input_quote": "",
+              "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+              "financial_context": null,
+              "event_date": ""
+            },
+            "limitations": [
+              "Fictional evidence only; a different mineral, site or outcome does not establish lithium feasibility."
+            ],
+            "own_company_expansion_assessment": "An inspected FlytBase source indicates possible adoption elsewhere in the company. Confirm which division/site uses FlytBase before treating these requested sites as an expansion. See source registry and original model proposal for evidence/limitations."
+          },
+          "score": 90,
+          "breakdown": {
+            "industry": 25,
+            "use_case": 30,
+            "operating_context": 15,
+            "geography": 10,
+            "referral": 10,
+            "same_company": 0
+          },
+          "eligible": true,
+          "rejection_reasons": [],
+          "excluded_dimensions": [],
+          "selection_note": "An excluded dimension contributes zero and its unverified rationale is withheld; consult raw proposals/audit before sharing."
+        },
+        "supporting": [
+          {
+            "candidate": {
+              "title": "SYNTHETIC: AMX iodine inspection",
+              "source_id": "S_1d6dedcd234c",
+              "dimensions": [
+                {
+                  "dimension": "industry",
+                  "matched": true,
+                  "rationale": {
+                    "text": "Potential similarity on industry.",
+                    "kind": "inference",
+                    "evidence": [
+                      {
+                        "source_id": "S_1d6dedcd234c",
+                        "quote": "AMX uses FlytBase thermal inspection at its iodine operations in Chile."
+                      }
+                    ],
+                    "input_quote": "",
+                    "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                    "financial_context": null,
+                    "event_date": ""
+                  }
+                },
+                {
+                  "dimension": "use_case",
+                  "matched": true,
+                  "rationale": {
+                    "text": "Potential similarity on use case.",
+                    "kind": "inference",
+                    "evidence": [
+                      {
+                        "source_id": "S_1d6dedcd234c",
+                        "quote": "AMX uses FlytBase thermal inspection at its iodine operations in Chile."
+                      }
+                    ],
+                    "input_quote": "",
+                    "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                    "financial_context": null,
+                    "event_date": ""
+                  }
+                },
+                {
+                  "dimension": "operating_context",
+                  "matched": false,
+                  "rationale": {
+                    "text": "Potential similarity on operating context.",
+                    "kind": "inference",
+                    "evidence": [
+                      {
+                        "source_id": "S_1d6dedcd234c",
+                        "quote": "AMX uses FlytBase thermal inspection at its iodine operations in Chile."
+                      }
+                    ],
+                    "input_quote": "",
+                    "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                    "financial_context": null,
+                    "event_date": ""
+                  }
+                },
+                {
+                  "dimension": "geography",
+                  "matched": true,
+                  "rationale": {
+                    "text": "Potential similarity on geography.",
+                    "kind": "inference",
+                    "evidence": [
+                      {
+                        "source_id": "S_1d6dedcd234c",
+                        "quote": "AMX uses FlytBase thermal inspection at its iodine operations in Chile."
+                      }
+                    ],
+                    "input_quote": "",
+                    "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                    "financial_context": null,
+                    "event_date": ""
+                  }
+                },
+                {
+                  "dimension": "referral",
+                  "matched": false,
+                  "rationale": {
+                    "text": "Potential similarity on referral.",
+                    "kind": "inference",
+                    "evidence": [
+                      {
+                        "source_id": "S_1d6dedcd234c",
+                        "quote": "AMX uses FlytBase thermal inspection at its iodine operations in Chile."
+                      }
+                    ],
+                    "input_quote": "",
+                    "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                    "financial_context": null,
+                    "event_date": ""
+                  }
+                },
+                {
+                  "dimension": "same_company",
+                  "matched": true,
+                  "rationale": {
+                    "text": "Potential similarity on same company.",
+                    "kind": "inference",
+                    "evidence": [
+                      {
+                        "source_id": "S_1d6dedcd234c",
+                        "quote": "AMX uses FlytBase thermal inspection at its iodine operations in Chile."
+                      }
+                    ],
+                    "input_quote": "",
+                    "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                    "financial_context": null,
+                    "event_date": ""
+                  }
+                }
+              ],
+              "relevance": {
+                "text": "A relevant industrial inspection comparison; transfer requires technical discovery.",
+                "kind": "inference",
+                "evidence": [
+                  {
+                    "source_id": "S_1d6dedcd234c",
+                    "quote": "AMX uses FlytBase thermal inspection at its iodine operations in Chile."
+                  }
+                ],
+                "input_quote": "",
+                "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                "financial_context": null,
+                "event_date": ""
+              },
+              "limitations": [
+                "Fictional evidence only; a different mineral, site or outcome does not establish lithium feasibility."
+              ],
+              "own_company_expansion_assessment": "An inspected FlytBase source indicates possible adoption elsewhere in the company. Confirm which division/site uses FlytBase before treating these requested sites as an expansion. See source registry and original model proposal for evidence/limitations."
+            },
+            "score": 75,
+            "breakdown": {
+              "industry": 25,
+              "use_case": 30,
+              "operating_context": 0,
+              "geography": 10,
+              "referral": 0,
+              "same_company": 10
+            },
+            "eligible": true,
+            "rejection_reasons": [],
+            "excluded_dimensions": [],
+            "selection_note": "An excluded dimension contributes zero and its unverified rationale is withheld; consult raw proposals/audit before sharing."
+          }
+        ],
+        "selection_rule": "Highest eligible inspected FlytBase material after evidence-gated dimension scoring; unsupported matches score zero. Winner and score are not outcome guarantees.",
+        "groundedness": {
+          "mechanical_and_semantic_findings": [],
+          "semantic_review": "performed",
+          "limitation": "Automated checks flag risks; they do not guarantee factual truth."
+        },
+        "possible_existing_company_relationship": [
+          {
+            "source_id": "S_1d6dedcd234c",
+            "title": "SYNTHETIC: AMX iodine inspection",
+            "url": "https://www.flytbase.com/__offline_fixture__/amx-iodine",
+            "quote": "AMX uses FlytBase thermal inspection at its iodine operations in Chile.",
+            "interpretation": "Possible existing company-level FlytBase relationship; division, sites and current scope require discovery.",
+            "deployment_scope_evidence": "AMX uses FlytBase thermal inspection at its iodine operations in Chile",
+            "scope_limitation": "Compare this explicitly stated operating context with the enquiry; confirm division/site coverage before proposing expansion."
+          }
+        ]
+      },
+      "warnings": [],
+      "execution_origin": "offline test fixture"
+    },
+    {
+      "name": "Partner Identification",
+      "status": "complete",
+      "started_at": "2026-11-04T12:17:28.762577+00:00",
+      "finished_at": "2026-11-04T12:17:28.829275+00:00",
+      "elapsed_seconds": 0.07,
+      "output": {
+        "recommended_motion": "direct_ae",
+        "rationale": [
+          {
+            "text": "Retain AE ownership for multi-site enterprise discovery; use evidenced local implementation support after capacity checks.",
+            "kind": "inference",
+            "evidence": [],
+            "input_quote": "",
+            "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+            "financial_context": null,
+            "event_date": ""
+          }
+        ],
+        "candidates": [
+          {
+            "name": "Andes Field Robotics",
+            "partner_type": "Industrial drone systems integrator",
+            "ecosystem_evidence": {
+              "text": "Andes Field Robotics is a FlytBase integration partner.",
+              "kind": "public",
+              "evidence": [
+                {
+                  "source_id": "S_ad3e7314ab2b",
+                  "quote": "Andes Field Robotics is a FlytBase integration partner."
+                }
+              ],
+              "input_quote": "",
+              "uncertainty": "",
+              "financial_context": null,
+              "event_date": ""
+            },
+            "capabilities": [
+              {
+                "text": "It installs industrial drone docks and integrates inspection workflows.",
+                "kind": "public",
+                "evidence": [
+                  {
+                    "source_id": "S_ad3e7314ab2b",
+                    "quote": "It installs industrial drone docks and integrates inspection workflows."
+                  }
+                ],
+                "input_quote": "",
+                "uncertainty": "",
+                "financial_context": null,
+                "event_date": ""
+              }
+            ],
+            "geographic_coverage": {
+              "text": "Andes Field Robotics provides industrial drone installation and maintenance services in Chile.",
+              "kind": "public",
+              "evidence": [
+                {
+                  "source_id": "S_f2511add67e6",
+                  "quote": "Andes Field Robotics provides industrial drone installation and maintenance services in Chile."
+                }
+              ],
+              "input_quote": "",
+              "uncertainty": "",
+              "financial_context": null,
+              "event_date": ""
+            },
+            "availability": "Not verified; confirm current capacity before assignment.",
+            "limitations": [
+              "Coverage does not prove present availability or site-specific capability."
+            ]
+          }
+        ],
+        "proposed_partner_name": "",
+        "required_partner_type": "Industrial drone systems integrator",
+        "commercial_owner": "FlytBase Account Executive",
+        "implementation_owner": "Local implementation support to be verified during discovery; no partner assigned.",
+        "next_action": "AE schedules discovery and separately verifies integrator capacity, site conditions and implementation scope.",
+        "gaps": [],
+        "candidate_checks": [
+          {
+            "name": "Andes Field Robotics",
+            "ecosystem_verified": true,
+            "capability_verified": true,
+            "country_coverage_verified": true,
+            "audit_clear": true,
+            "eligible_for_partner_led": true,
+            "availability": "Not verified; confirm current capacity before assignment."
+          }
+        ],
+        "proposed_availability_unverified": {
+          "Andes Field Robotics": "Not verified; confirm capacity and site access before assigning work."
+        },
+        "implementation_candidates": [
+          {
+            "name": "Andes Field Robotics",
+            "partner_type": "Industrial drone systems integrator",
+            "ecosystem_evidence": {
+              "text": "Andes Field Robotics is a FlytBase integration partner.",
+              "kind": "public",
+              "evidence": [
+                {
+                  "source_id": "S_ad3e7314ab2b",
+                  "quote": "Andes Field Robotics is a FlytBase integration partner."
+                }
+              ],
+              "input_quote": "",
+              "uncertainty": "",
+              "financial_context": null,
+              "event_date": ""
+            },
+            "capabilities": [
+              {
+                "text": "It installs industrial drone docks and integrates inspection workflows.",
+                "kind": "public",
+                "evidence": [
+                  {
+                    "source_id": "S_ad3e7314ab2b",
+                    "quote": "It installs industrial drone docks and integrates inspection workflows."
+                  }
+                ],
+                "input_quote": "",
+                "uncertainty": "",
+                "financial_context": null,
+                "event_date": ""
+              }
+            ],
+            "geographic_coverage": {
+              "text": "Andes Field Robotics provides industrial drone installation and maintenance services in Chile.",
+              "kind": "public",
+              "evidence": [
+                {
+                  "source_id": "S_f2511add67e6",
+                  "quote": "Andes Field Robotics provides industrial drone installation and maintenance services in Chile."
+                }
+              ],
+              "input_quote": "",
+              "uncertainty": "",
+              "financial_context": null,
+              "event_date": ""
+            },
+            "availability": "Not verified; confirm current capacity before assignment.",
+            "limitations": [
+              "Coverage does not prove present availability or site-specific capability."
+            ]
+          }
+        ],
+        "selected_partner_name": "",
+        "guardrail": "Capability and public coverage do not establish current partner availability; confirm before assignment.",
+        "motion_comparison": {
+          "direct_ae": "FlytBase AE owns commercial discovery and the enterprise buying process.",
+          "partner_assisted": "An evidence-qualified local integrator may support implementation; capacity and assignment require confirmation.",
+          "partner_led": "Propose only when ecosystem membership, capability and the actual country are substantiated."
+        },
+        "groundedness": {
+          "mechanical_and_semantic_findings": [],
+          "semantic_review": "performed",
+          "limitation": "Automated checks flag risks; they do not guarantee factual truth."
+        }
+      },
+      "warnings": [],
+      "execution_origin": "offline test fixture"
+    },
+    {
+      "name": "AE Handoff Summary",
+      "status": "complete",
+      "started_at": "2026-11-04T12:17:28.916488+00:00",
+      "finished_at": "2026-11-04T12:17:28.935691+00:00",
+      "elapsed_seconds": 0.02,
+      "output": {
+        "buyer_context": {
+          "name": "Elena Morales",
+          "email": "elena@amx.example",
+          "title": "Head of Northern Operations",
+          "company": "Altiplano Minerals (AMX)",
+          "geography": "Chile",
+          "referral": "Cordillera Copper"
+        },
+        "identity_basis": "Buyer identity/title/referral are enquiry-supplied, not publicly verified authority or relationships.",
+        "business_problem_and_desired_outcome": "Looking for drone-based inspection for 3 large-scale, 24/7 lithium extraction sites",
+        "qualification": {
+          "framework": "BANT",
+          "framework_rationale": "BANT is a compact first-contact checklist for Budget, Authority, Need and Timeline. It exposes gaps without blocking a promising discovery call. Enterprise discovery must still establish stakeholders, procurement, technical feasibility and measurable success criteria.",
+          "lead": {
+            "name": "Elena Morales",
+            "email": "elena@amx.example",
+            "title": "Head of Northern Operations",
+            "company": "Altiplano Minerals (AMX)",
+            "domain": "amx.example",
+            "geography": "Chile",
+            "industry": "mining",
+            "need": "Looking for drone-based inspection for 3 large-scale, 24/7 lithium extraction sites",
+            "referral": "Cordillera Copper",
+            "knowns": [
+              "Looking for drone-based inspection for 3 large-scale, 24/7 lithium extraction sites"
+            ],
+            "budget": {
+              "status": "unknown",
+              "evidence": [],
+              "uncertainty": "Not established by the enquiry.",
+              "questions": [
+                "Is there approved project funding or only a budget discussion?"
+              ]
+            },
+            "authority": {
+              "status": "unknown",
+              "evidence": [],
+              "uncertainty": "Not established by the enquiry.",
+              "questions": [
+                "Who owns the business case and final purchasing approval?"
+              ]
+            },
+            "need_dimension": {
+              "status": "confirmed",
+              "evidence": [
+                "Looking for drone-based inspection for 3 large-scale, 24/7 lithium extraction sites"
+              ],
+              "uncertainty": "Technical feasibility remains unverified.",
+              "questions": [
+                "Which inspections and acceptance criteria matter most?"
+              ]
+            },
+            "timeline": {
+              "status": "ambiguous",
+              "evidence": [],
+              "uncertainty": "Quarter supplied without a year; no deadline inferred from the run date.",
+              "questions": [
+                "Which year does the stated quarter refer to, and is that a budget discussion or deployment target?",
+                "Which year is Q3, and when would a pilot decision be made?"
+              ]
+            },
+            "signals": [
+              {
+                "code": "need_fit",
+                "quote": "Looking for drone-based inspection for 3 large-scale, 24/7 lithium extraction sites"
+              },
+              {
+                "code": "operational_pain",
+                "quote": "Contracted crews are expensive and hazardous"
+              },
+              {
+                "code": "multiple_sites",
+                "quote": "3 large-scale"
+              },
+              {
+                "code": "continuous_operations",
+                "quote": "24/7"
+              },
+              {
+                "code": "senior_role",
+                "quote": "Head of Northern Operations"
+              },
+              {
+                "code": "referral",
+                "quote": "Referred by Cordillera Copper"
+              }
+            ],
+            "fit": "promising",
+            "fit_reason": "Explicit operational pain and multi-site inspection need; discovery still required."
+          },
+          "priority_score": 80,
+          "priority_band": "prompt discovery",
+          "priority_explanation": "An engagement priority, not a purchase probability. Unknowns earn no points and are not negative evidence.",
+          "qualification_completeness_percent": 25,
+          "completeness_explanation": "25 points per dimension explicitly established, positively or negatively; ambiguous/unknown dimensions earn zero.",
+          "score_breakdown": [
+            {
+              "signal": "need_fit",
+              "points": 25,
+              "quote": "Looking for drone-based inspection for 3 large-scale, 24/7 lithium extraction sites"
+            },
+            {
+              "signal": "operational_pain",
+              "points": 20,
+              "quote": "Contracted crews are expensive and hazardous"
+            },
+            {
+              "signal": "multiple_sites",
+              "points": 10,
+              "quote": "3 large-scale"
+            },
+            {
+              "signal": "continuous_operations",
+              "points": 10,
+              "quote": "24/7"
+            },
+            {
+              "signal": "senior_role",
+              "points": 10,
+              "quote": "Head of Northern Operations"
+            },
+            {
+              "signal": "referral",
+              "points": 5,
+              "quote": "Referred by Cordillera Copper"
+            }
+          ],
+          "rubric": {
+            "need_fit": 25,
+            "operational_pain": 20,
+            "multiple_sites": 10,
+            "continuous_operations": 10,
+            "senior_role": 10,
+            "referral": 5,
+            "approved_budget": 10,
+            "confirmed_authority": 5,
+            "dated_timeline": 5
+          }
+        },
+        "top_three_research_findings": [
+          {
+            "text": "AMX has separate Northern Operations and Industrial Products divisions.",
+            "kind": "public",
+            "evidence": [
+              {
+                "source_id": "S_bfb758c8161e",
+                "quote": "AMX has separate Northern Operations and Industrial Products divisions."
+              }
+            ],
+            "input_quote": "",
+            "uncertainty": "",
+            "financial_context": null,
+            "event_date": ""
+          },
+          {
+            "text": "AMX FY2025 group capital expenditure was USD 420 million and operating expenses were USD 910 million.",
+            "kind": "public",
+            "evidence": [
+              {
+                "source_id": "S_8e054451f559",
+                "quote": "AMX FY2025 group capital expenditure was USD 420 million and operating expenses were USD 910 million."
+              }
+            ],
+            "input_quote": "",
+            "uncertainty": "",
+            "financial_context": {
+              "currency": "USD",
+              "units": "million",
+              "reporting_period": "FY2025",
+              "publication_date": "2026-02-18",
+              "scope": "group-wide spending, no drone project budget"
+            },
+            "event_date": ""
+          },
+          {
+            "text": "AMX announced a remote condition-monitoring programme on 10 June 2026.",
+            "kind": "public",
+            "evidence": [
+              {
+                "source_id": "S_76c18676528a",
+                "quote": "AMX announced a remote condition-monitoring programme on 10 June 2026."
+              }
+            ],
+            "input_quote": "",
+            "uncertainty": "",
+            "financial_context": null,
+            "event_date": ""
+          }
+        ],
+        "recommended_case_study": {
+          "candidate": {
+            "title": "SYNTHETIC: Cordillera Copper inspection",
+            "source_id": "S_c42e69ffd517",
+            "dimensions": [
+              {
+                "dimension": "industry",
+                "matched": true,
+                "rationale": {
+                  "text": "Potential similarity on industry.",
+                  "kind": "inference",
+                  "evidence": [
+                    {
+                      "source_id": "S_c42e69ffd517",
+                      "quote": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile. The mine operates in dusty desert conditions."
+                    }
+                  ],
+                  "input_quote": "",
+                  "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                  "financial_context": null,
+                  "event_date": ""
+                }
+              },
+              {
+                "dimension": "use_case",
+                "matched": true,
+                "rationale": {
+                  "text": "Potential similarity on use case.",
+                  "kind": "inference",
+                  "evidence": [
+                    {
+                      "source_id": "S_c42e69ffd517",
+                      "quote": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile. The mine operates in dusty desert conditions."
+                    }
+                  ],
+                  "input_quote": "",
+                  "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                  "financial_context": null,
+                  "event_date": ""
+                }
+              },
+              {
+                "dimension": "operating_context",
+                "matched": true,
+                "rationale": {
+                  "text": "Potential similarity on operating context.",
+                  "kind": "inference",
+                  "evidence": [
+                    {
+                      "source_id": "S_c42e69ffd517",
+                      "quote": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile. The mine operates in dusty desert conditions."
+                    }
+                  ],
+                  "input_quote": "",
+                  "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                  "financial_context": null,
+                  "event_date": ""
+                }
+              },
+              {
+                "dimension": "geography",
+                "matched": true,
+                "rationale": {
+                  "text": "Potential similarity on geography.",
+                  "kind": "inference",
+                  "evidence": [
+                    {
+                      "source_id": "S_c42e69ffd517",
+                      "quote": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile. The mine operates in dusty desert conditions."
+                    }
+                  ],
+                  "input_quote": "",
+                  "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                  "financial_context": null,
+                  "event_date": ""
+                }
+              },
+              {
+                "dimension": "referral",
+                "matched": true,
+                "rationale": {
+                  "text": "Potential similarity on referral.",
+                  "kind": "inference",
+                  "evidence": [
+                    {
+                      "source_id": "S_c42e69ffd517",
+                      "quote": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile. The mine operates in dusty desert conditions."
+                    }
+                  ],
+                  "input_quote": "",
+                  "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                  "financial_context": null,
+                  "event_date": ""
+                }
+              },
+              {
+                "dimension": "same_company",
+                "matched": false,
+                "rationale": {
+                  "text": "Potential similarity on same company.",
+                  "kind": "inference",
+                  "evidence": [
+                    {
+                      "source_id": "S_c42e69ffd517",
+                      "quote": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile. The mine operates in dusty desert conditions."
+                    }
+                  ],
+                  "input_quote": "",
+                  "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                  "financial_context": null,
+                  "event_date": ""
+                }
+              }
+            ],
+            "relevance": {
+              "text": "A relevant industrial inspection comparison; transfer requires technical discovery.",
+              "kind": "inference",
+              "evidence": [
+                {
+                  "source_id": "S_c42e69ffd517",
+                  "quote": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile. The mine operates in dusty desert conditions."
+                }
+              ],
+              "input_quote": "",
+              "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+              "financial_context": null,
+              "event_date": ""
+            },
+            "limitations": [
+              "Fictional evidence only; a different mineral, site or outcome does not establish lithium feasibility."
+            ],
+            "own_company_expansion_assessment": "An inspected FlytBase source indicates possible adoption elsewhere in the company. Confirm which division/site uses FlytBase before treating these requested sites as an expansion. See source registry and original model proposal for evidence/limitations."
+          },
+          "score": 90,
+          "breakdown": {
+            "industry": 25,
+            "use_case": 30,
+            "operating_context": 15,
+            "geography": 10,
+            "referral": 10,
+            "same_company": 0
+          },
+          "eligible": true,
+          "rejection_reasons": [],
+          "excluded_dimensions": [],
+          "selection_note": "An excluded dimension contributes zero and its unverified rationale is withheld; consult raw proposals/audit before sharing."
+        },
+        "possible_existing_company_relationship": [
+          {
+            "source_id": "S_1d6dedcd234c",
+            "title": "SYNTHETIC: AMX iodine inspection",
+            "url": "https://www.flytbase.com/__offline_fixture__/amx-iodine",
+            "quote": "AMX uses FlytBase thermal inspection at its iodine operations in Chile.",
+            "interpretation": "Possible existing company-level FlytBase relationship; division, sites and current scope require discovery.",
+            "deployment_scope_evidence": "AMX uses FlytBase thermal inspection at its iodine operations in Chile",
+            "scope_limitation": "Compare this explicitly stated operating context with the enquiry; confirm division/site coverage before proposing expansion."
+          }
+        ],
+        "routing": {
+          "recommended_motion": "direct_ae",
+          "selected_partner_name": "",
+          "commercial_owner": "FlytBase Account Executive",
+          "implementation_owner": "Local implementation support to be verified during discovery; no partner assigned.",
+          "implementation_candidates": [
+            {
+              "name": "Andes Field Robotics",
+              "partner_type": "Industrial drone systems integrator",
+              "ecosystem_evidence": {
+                "text": "Andes Field Robotics is a FlytBase integration partner.",
+                "kind": "public",
+                "evidence": [
+                  {
+                    "source_id": "S_ad3e7314ab2b",
+                    "quote": "Andes Field Robotics is a FlytBase integration partner."
+                  }
+                ],
+                "input_quote": "",
+                "uncertainty": "",
+                "financial_context": null,
+                "event_date": ""
+              },
+              "capabilities": [
+                {
+                  "text": "It installs industrial drone docks and integrates inspection workflows.",
+                  "kind": "public",
+                  "evidence": [
+                    {
+                      "source_id": "S_ad3e7314ab2b",
+                      "quote": "It installs industrial drone docks and integrates inspection workflows."
+                    }
+                  ],
+                  "input_quote": "",
+                  "uncertainty": "",
+                  "financial_context": null,
+                  "event_date": ""
+                }
+              ],
+              "geographic_coverage": {
+                "text": "Andes Field Robotics provides industrial drone installation and maintenance services in Chile.",
+                "kind": "public",
+                "evidence": [
+                  {
+                    "source_id": "S_f2511add67e6",
+                    "quote": "Andes Field Robotics provides industrial drone installation and maintenance services in Chile."
+                  }
+                ],
+                "input_quote": "",
+                "uncertainty": "",
+                "financial_context": null,
+                "event_date": ""
+              },
+              "availability": "Not verified; confirm current capacity before assignment.",
+              "limitations": [
+                "Coverage does not prove present availability or site-specific capability."
+              ]
+            }
+          ],
+          "next_action": "AE schedules discovery and separately verifies integrator capacity, site conditions and implementation scope."
+        },
+        "suggested_next_action": "Arrange a short discovery call to confirm budget approval process, decision stakeholders, timing year, site conditions and pilot success criteria.",
+        "why": "The engagement priority and qualification completeness are separate; resolve feasibility and buying-process gaps before proposing a rollout.",
+        "discovery_questions": [
+          "Is there approved project funding or only a budget discussion?",
+          "Who owns the business case and final purchasing approval?",
+          "Which inspections and acceptance criteria matter most?",
+          "Which year does the stated quarter refer to, and is that a budget discussion or deployment target?",
+          "Which year is Q3, and when would a pilot decision be made?",
+          "Does this request expand an existing FlytBase deployment at another Altiplano Minerals (AMX) site or division?"
+        ],
+        "important_limitations": [
+          "Inspected FlytBase content mentions potential existing customer-level deployment; confirm which division/sites and whether this is expansion."
+        ],
+        "stakeholder_hypotheses": [
+          {
+            "text": "Operations may sponsor the business case alongside reliability, IT and procurement; Elena's manager and approval authority remain unknown.",
+            "kind": "inference",
+            "evidence": [],
+            "input_quote": "",
+            "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+            "financial_context": null,
+            "event_date": ""
+          }
+        ]
+      },
+      "warnings": [],
+      "execution_origin": "offline test fixture"
+    }
+  ],
+  "sources": {
+    "S_bfb758c8161e": {
+      "source_id": "S_bfb758c8161e",
+      "url": "https://amx.example/governance",
+      "title": "Fictional AMX governance",
+      "retrieved_at": "2026-11-04T12:17:28.679267+00:00",
+      "publication_date": "2026-02-18",
+      "publication_date_basis": "fictional date supplied by offline fixture",
+      "access": "inspected_page",
+      "inspection_method": "OFFLINE: supplied fixture text; no page/PDF or search service was accessed.",
+      "text": "AMX has separate Northern Operations and Industrial Products divisions. The operations steering committee oversees site reliability. No individual buyer reporting line is published.",
+      "search_context": "Synthetic search fixture, never retrieved from the web.",
+      "truncated": false,
+      "pages_read": 0,
+      "pages_total": 0,
+      "pages_retained": [],
+      "error": "",
+      "queries": [
+        "\"AMX\" official board and management operations leadership governance Chile amx.example"
+      ],
+      "cited_by": [
+        {
+          "stage": "Deep Account Research",
+          "path": "topics.0.claims.0",
+          "claim": "AMX has separate Northern Operations and Industrial Products divisions.",
+          "kind": "public",
+          "supporting_excerpt": "AMX has separate Northern Operations and Industrial Products divisions.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        },
+        {
+          "stage": "AE Handoff Summary",
+          "path": "top_three_research_findings.0",
+          "claim": "AMX has separate Northern Operations and Industrial Products divisions.",
+          "kind": "public",
+          "supporting_excerpt": "AMX has separate Northern Operations and Industrial Products divisions.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        }
+      ]
+    },
+    "S_8e054451f559": {
+      "source_id": "S_8e054451f559",
+      "url": "https://amx.example/investors/fy2025",
+      "title": "Fictional AMX FY2025 report",
+      "retrieved_at": "2026-11-04T12:17:28.683847+00:00",
+      "publication_date": "2026-02-18",
+      "publication_date_basis": "fictional date supplied by offline fixture",
+      "access": "inspected_page",
+      "inspection_method": "OFFLINE: supplied fixture text; no page/PDF or search service was accessed.",
+      "text": "AMX FY2025 group capital expenditure was USD 420 million and operating expenses were USD 910 million. The FY2025 technology programme invested USD 12 million in remote condition monitoring. Investor priorities are safer operations and disciplined expansion. No drone project allocation is disclosed.",
+      "search_context": "Synthetic search fixture, never retrieved from the web.",
+      "truncated": false,
+      "pages_read": 0,
+      "pages_total": 0,
+      "pages_retained": [],
+      "error": "",
+      "queries": [
+        "site:sec.gov/Archives/edgar/data \"AMX\" 20-F capital expenditures 2025 investment plan"
+      ],
+      "cited_by": [
+        {
+          "stage": "Deep Account Research",
+          "path": "topics.1.claims.0",
+          "claim": "AMX FY2025 group capital expenditure was USD 420 million and operating expenses were USD 910 million.",
+          "kind": "public",
+          "supporting_excerpt": "AMX FY2025 group capital expenditure was USD 420 million and operating expenses were USD 910 million.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        },
+        {
+          "stage": "Deep Account Research",
+          "path": "topics.1.claims.1",
+          "claim": "The FY2025 technology programme invested USD 12 million in remote condition monitoring.",
+          "kind": "public",
+          "supporting_excerpt": "The FY2025 technology programme invested USD 12 million in remote condition monitoring.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        },
+        {
+          "stage": "Deep Account Research",
+          "path": "topics.3.claims.0",
+          "claim": "Investor priorities are safer operations and disciplined expansion.",
+          "kind": "public",
+          "supporting_excerpt": "Investor priorities are safer operations and disciplined expansion.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        },
+        {
+          "stage": "Response Generation",
+          "path": "drafts.0.paragraphs.1",
+          "claim": "Investor priorities are safer operations and disciplined expansion.",
+          "kind": "public",
+          "supporting_excerpt": "Investor priorities are safer operations and disciplined expansion.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        },
+        {
+          "stage": "Response Generation",
+          "path": "drafts.1.paragraphs.1",
+          "claim": "Investor priorities are safer operations and disciplined expansion.",
+          "kind": "public",
+          "supporting_excerpt": "Investor priorities are safer operations and disciplined expansion.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        },
+        {
+          "stage": "Response Generation",
+          "path": "drafts.2.paragraphs.1",
+          "claim": "Investor priorities are safer operations and disciplined expansion.",
+          "kind": "public",
+          "supporting_excerpt": "Investor priorities are safer operations and disciplined expansion.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        },
+        {
+          "stage": "Response Generation",
+          "path": "drafts.3.paragraphs.1",
+          "claim": "Investor priorities are safer operations and disciplined expansion.",
+          "kind": "public",
+          "supporting_excerpt": "Investor priorities are safer operations and disciplined expansion.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        },
+        {
+          "stage": "Response Generation",
+          "path": "drafts.4.paragraphs.1",
+          "claim": "Investor priorities are safer operations and disciplined expansion.",
+          "kind": "public",
+          "supporting_excerpt": "Investor priorities are safer operations and disciplined expansion.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        },
+        {
+          "stage": "AE Handoff Summary",
+          "path": "top_three_research_findings.1",
+          "claim": "AMX FY2025 group capital expenditure was USD 420 million and operating expenses were USD 910 million.",
+          "kind": "public",
+          "supporting_excerpt": "AMX FY2025 group capital expenditure was USD 420 million and operating expenses were USD 910 million.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        }
+      ]
+    },
+    "S_76c18676528a": {
+      "source_id": "S_76c18676528a",
+      "url": "https://amx.example/news/remote-monitoring",
+      "title": "Fictional AMX strategic update",
+      "retrieved_at": "2026-11-04T12:17:28.687529+00:00",
+      "publication_date": "2026-06-10",
+      "publication_date_basis": "fictional date supplied by offline fixture",
+      "access": "inspected_page",
+      "inspection_method": "OFFLINE: supplied fixture text; no page/PDF or search service was accessed.",
+      "text": "AMX announced a remote condition-monitoring programme on 10 June 2026. Northern Operations remains a separate division; no merger or ownership change is described in this update.",
+      "search_context": "Synthetic search fixture, never retrieved from the web.",
+      "truncated": false,
+      "pages_read": 0,
+      "pages_total": 0,
+      "pages_retained": [],
+      "error": "",
+      "queries": [
+        "\"AMX\" official mining operational strategy announcements Chile 2026 news"
+      ],
+      "cited_by": [
+        {
+          "stage": "Deep Account Research",
+          "path": "topics.2.claims.0",
+          "claim": "AMX announced a remote condition-monitoring programme on 10 June 2026.",
+          "kind": "public",
+          "supporting_excerpt": "AMX announced a remote condition-monitoring programme on 10 June 2026.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        },
+        {
+          "stage": "Deep Account Research",
+          "path": "topics.4.claims.0",
+          "claim": "Northern Operations remains a separate division; no merger or ownership change is described in this update.",
+          "kind": "public",
+          "supporting_excerpt": "Northern Operations remains a separate division; no merger or ownership change is described in this update.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        },
+        {
+          "stage": "AE Handoff Summary",
+          "path": "top_three_research_findings.2",
+          "claim": "AMX announced a remote condition-monitoring programme on 10 June 2026.",
+          "kind": "public",
+          "supporting_excerpt": "AMX announced a remote condition-monitoring programme on 10 June 2026.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        }
+      ]
+    },
+    "S_1d6dedcd234c": {
+      "source_id": "S_1d6dedcd234c",
+      "url": "https://www.flytbase.com/__offline_fixture__/amx-iodine",
+      "title": "SYNTHETIC: AMX iodine inspection",
+      "retrieved_at": "2026-11-04T12:17:28.718141+00:00",
+      "publication_date": "2026-01-15",
+      "publication_date_basis": "fictional date supplied by offline fixture",
+      "access": "inspected_page",
+      "inspection_method": "OFFLINE: supplied fixture text; no page/PDF or search service was accessed.",
+      "text": "AMX uses FlytBase thermal inspection at its iodine operations in Chile. The deployment concerns the Industrial Products division. Lithium sites are not covered by this example.",
+      "search_context": "Synthetic search fixture, never retrieved from the web.",
+      "truncated": false,
+      "pages_read": 0,
+      "pages_total": 0,
+      "pages_retained": [],
+      "error": "",
+      "queries": [
+        "site:flytbase.com \"AMX\" mining customer deployment case study Looking for drone-based inspection for 3 large-scale, 24/7 lithium extraction sites"
+      ],
+      "cited_by": [
+        {
+          "stage": "Case Study and Material Matching",
+          "path": "candidates.0.dimensions.0.rationale",
+          "claim": "Potential similarity on industry.",
+          "kind": "inference",
+          "supporting_excerpt": "AMX uses FlytBase thermal inspection at its iodine operations in Chile.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        },
+        {
+          "stage": "Case Study and Material Matching",
+          "path": "candidates.0.dimensions.1.rationale",
+          "claim": "Potential similarity on use case.",
+          "kind": "inference",
+          "supporting_excerpt": "AMX uses FlytBase thermal inspection at its iodine operations in Chile.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        },
+        {
+          "stage": "Case Study and Material Matching",
+          "path": "candidates.0.dimensions.2.rationale",
+          "claim": "Potential similarity on operating context.",
+          "kind": "inference",
+          "supporting_excerpt": "AMX uses FlytBase thermal inspection at its iodine operations in Chile.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        },
+        {
+          "stage": "Case Study and Material Matching",
+          "path": "candidates.0.dimensions.3.rationale",
+          "claim": "Potential similarity on geography.",
+          "kind": "inference",
+          "supporting_excerpt": "AMX uses FlytBase thermal inspection at its iodine operations in Chile.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        },
+        {
+          "stage": "Case Study and Material Matching",
+          "path": "candidates.0.dimensions.4.rationale",
+          "claim": "Potential similarity on referral.",
+          "kind": "inference",
+          "supporting_excerpt": "AMX uses FlytBase thermal inspection at its iodine operations in Chile.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        },
+        {
+          "stage": "Case Study and Material Matching",
+          "path": "candidates.0.dimensions.5.rationale",
+          "claim": "Potential similarity on same company.",
+          "kind": "inference",
+          "supporting_excerpt": "AMX uses FlytBase thermal inspection at its iodine operations in Chile.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        },
+        {
+          "stage": "Case Study and Material Matching",
+          "path": "candidates.0.relevance",
+          "claim": "A relevant industrial inspection comparison; transfer requires technical discovery.",
+          "kind": "inference",
+          "supporting_excerpt": "AMX uses FlytBase thermal inspection at its iodine operations in Chile.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        },
+        {
+          "stage": "Case Study and Material Matching",
+          "path": "comparison.0.candidate.dimensions.0.rationale",
+          "claim": "Potential similarity on industry.",
+          "kind": "inference",
+          "supporting_excerpt": "AMX uses FlytBase thermal inspection at its iodine operations in Chile.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        },
+        {
+          "stage": "Case Study and Material Matching",
+          "path": "comparison.0.candidate.dimensions.1.rationale",
+          "claim": "Potential similarity on use case.",
+          "kind": "inference",
+          "supporting_excerpt": "AMX uses FlytBase thermal inspection at its iodine operations in Chile.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        },
+        {
+          "stage": "Case Study and Material Matching",
+          "path": "comparison.0.candidate.dimensions.2.rationale",
+          "claim": "Potential similarity on operating context.",
+          "kind": "inference",
+          "supporting_excerpt": "AMX uses FlytBase thermal inspection at its iodine operations in Chile.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        },
+        {
+          "stage": "Case Study and Material Matching",
+          "path": "comparison.0.candidate.dimensions.3.rationale",
+          "claim": "Potential similarity on geography.",
+          "kind": "inference",
+          "supporting_excerpt": "AMX uses FlytBase thermal inspection at its iodine operations in Chile.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        },
+        {
+          "stage": "Case Study and Material Matching",
+          "path": "comparison.0.candidate.dimensions.4.rationale",
+          "claim": "Potential similarity on referral.",
+          "kind": "inference",
+          "supporting_excerpt": "AMX uses FlytBase thermal inspection at its iodine operations in Chile.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        },
+        {
+          "stage": "Case Study and Material Matching",
+          "path": "comparison.0.candidate.dimensions.5.rationale",
+          "claim": "Potential similarity on same company.",
+          "kind": "inference",
+          "supporting_excerpt": "AMX uses FlytBase thermal inspection at its iodine operations in Chile.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        },
+        {
+          "stage": "Case Study and Material Matching",
+          "path": "comparison.0.candidate.relevance",
+          "claim": "A relevant industrial inspection comparison; transfer requires technical discovery.",
+          "kind": "inference",
+          "supporting_excerpt": "AMX uses FlytBase thermal inspection at its iodine operations in Chile.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        },
+        {
+          "stage": "Case Study and Material Matching",
+          "path": "supporting.0.candidate.dimensions.0.rationale",
+          "claim": "Potential similarity on industry.",
+          "kind": "inference",
+          "supporting_excerpt": "AMX uses FlytBase thermal inspection at its iodine operations in Chile.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        },
+        {
+          "stage": "Case Study and Material Matching",
+          "path": "supporting.0.candidate.dimensions.1.rationale",
+          "claim": "Potential similarity on use case.",
+          "kind": "inference",
+          "supporting_excerpt": "AMX uses FlytBase thermal inspection at its iodine operations in Chile.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        },
+        {
+          "stage": "Case Study and Material Matching",
+          "path": "supporting.0.candidate.dimensions.2.rationale",
+          "claim": "Potential similarity on operating context.",
+          "kind": "inference",
+          "supporting_excerpt": "AMX uses FlytBase thermal inspection at its iodine operations in Chile.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        },
+        {
+          "stage": "Case Study and Material Matching",
+          "path": "supporting.0.candidate.dimensions.3.rationale",
+          "claim": "Potential similarity on geography.",
+          "kind": "inference",
+          "supporting_excerpt": "AMX uses FlytBase thermal inspection at its iodine operations in Chile.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        },
+        {
+          "stage": "Case Study and Material Matching",
+          "path": "supporting.0.candidate.dimensions.4.rationale",
+          "claim": "Potential similarity on referral.",
+          "kind": "inference",
+          "supporting_excerpt": "AMX uses FlytBase thermal inspection at its iodine operations in Chile.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        },
+        {
+          "stage": "Case Study and Material Matching",
+          "path": "supporting.0.candidate.dimensions.5.rationale",
+          "claim": "Potential similarity on same company.",
+          "kind": "inference",
+          "supporting_excerpt": "AMX uses FlytBase thermal inspection at its iodine operations in Chile.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        },
+        {
+          "stage": "Case Study and Material Matching",
+          "path": "supporting.0.candidate.relevance",
+          "claim": "A relevant industrial inspection comparison; transfer requires technical discovery.",
+          "kind": "inference",
+          "supporting_excerpt": "AMX uses FlytBase thermal inspection at its iodine operations in Chile.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        }
+      ]
+    },
+    "S_c42e69ffd517": {
+      "source_id": "S_c42e69ffd517",
+      "url": "https://www.flytbase.com/__offline_fixture__/cordillera-copper",
+      "title": "SYNTHETIC: Cordillera Copper inspection",
+      "retrieved_at": "2026-11-04T12:17:28.718150+00:00",
+      "publication_date": "2026-03-12",
+      "publication_date_basis": "fictional date supplied by offline fixture",
+      "access": "inspected_page",
+      "inspection_method": "OFFLINE: supplied fixture text; no page/PDF or search service was accessed.",
+      "text": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile. The mine operates in dusty desert conditions. Its example does not establish lithium-site feasibility or guaranteed savings.",
+      "search_context": "Synthetic search fixture, never retrieved from the web.",
+      "truncated": false,
+      "pages_read": 0,
+      "pages_total": 0,
+      "pages_retained": [],
+      "error": "",
+      "queries": [
+        "site:flytbase.com \"AMX\" mining customer deployment case study Looking for drone-based inspection for 3 large-scale, 24/7 lithium extraction sites"
+      ],
+      "cited_by": [
+        {
+          "stage": "Case Study and Material Matching",
+          "path": "candidates.1.dimensions.0.rationale",
+          "claim": "Potential similarity on industry.",
+          "kind": "inference",
+          "supporting_excerpt": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile. The mine operates in dusty desert conditions.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        },
+        {
+          "stage": "Case Study and Material Matching",
+          "path": "candidates.1.dimensions.1.rationale",
+          "claim": "Potential similarity on use case.",
+          "kind": "inference",
+          "supporting_excerpt": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile. The mine operates in dusty desert conditions.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        },
+        {
+          "stage": "Case Study and Material Matching",
+          "path": "candidates.1.dimensions.2.rationale",
+          "claim": "Potential similarity on operating context.",
+          "kind": "inference",
+          "supporting_excerpt": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile. The mine operates in dusty desert conditions.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        },
+        {
+          "stage": "Case Study and Material Matching",
+          "path": "candidates.1.dimensions.3.rationale",
+          "claim": "Potential similarity on geography.",
+          "kind": "inference",
+          "supporting_excerpt": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile. The mine operates in dusty desert conditions.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        },
+        {
+          "stage": "Case Study and Material Matching",
+          "path": "candidates.1.dimensions.4.rationale",
+          "claim": "Potential similarity on referral.",
+          "kind": "inference",
+          "supporting_excerpt": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile. The mine operates in dusty desert conditions.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        },
+        {
+          "stage": "Case Study and Material Matching",
+          "path": "candidates.1.dimensions.5.rationale",
+          "claim": "Potential similarity on same company.",
+          "kind": "inference",
+          "supporting_excerpt": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile. The mine operates in dusty desert conditions.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        },
+        {
+          "stage": "Case Study and Material Matching",
+          "path": "candidates.1.relevance",
+          "claim": "A relevant industrial inspection comparison; transfer requires technical discovery.",
+          "kind": "inference",
+          "supporting_excerpt": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile. The mine operates in dusty desert conditions.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        },
+        {
+          "stage": "Case Study and Material Matching",
+          "path": "referral_findings.0",
+          "claim": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile.",
+          "kind": "public",
+          "supporting_excerpt": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        },
+        {
+          "stage": "Case Study and Material Matching",
+          "path": "comparison.1.candidate.dimensions.0.rationale",
+          "claim": "Potential similarity on industry.",
+          "kind": "inference",
+          "supporting_excerpt": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile. The mine operates in dusty desert conditions.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        },
+        {
+          "stage": "Case Study and Material Matching",
+          "path": "comparison.1.candidate.dimensions.1.rationale",
+          "claim": "Potential similarity on use case.",
+          "kind": "inference",
+          "supporting_excerpt": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile. The mine operates in dusty desert conditions.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        },
+        {
+          "stage": "Case Study and Material Matching",
+          "path": "comparison.1.candidate.dimensions.2.rationale",
+          "claim": "Potential similarity on operating context.",
+          "kind": "inference",
+          "supporting_excerpt": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile. The mine operates in dusty desert conditions.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        },
+        {
+          "stage": "Case Study and Material Matching",
+          "path": "comparison.1.candidate.dimensions.3.rationale",
+          "claim": "Potential similarity on geography.",
+          "kind": "inference",
+          "supporting_excerpt": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile. The mine operates in dusty desert conditions.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        },
+        {
+          "stage": "Case Study and Material Matching",
+          "path": "comparison.1.candidate.dimensions.4.rationale",
+          "claim": "Potential similarity on referral.",
+          "kind": "inference",
+          "supporting_excerpt": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile. The mine operates in dusty desert conditions.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        },
+        {
+          "stage": "Case Study and Material Matching",
+          "path": "comparison.1.candidate.dimensions.5.rationale",
+          "claim": "Potential similarity on same company.",
+          "kind": "inference",
+          "supporting_excerpt": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile. The mine operates in dusty desert conditions.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        },
+        {
+          "stage": "Case Study and Material Matching",
+          "path": "comparison.1.candidate.relevance",
+          "claim": "A relevant industrial inspection comparison; transfer requires technical discovery.",
+          "kind": "inference",
+          "supporting_excerpt": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile. The mine operates in dusty desert conditions.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        },
+        {
+          "stage": "Case Study and Material Matching",
+          "path": "primary.candidate.dimensions.0.rationale",
+          "claim": "Potential similarity on industry.",
+          "kind": "inference",
+          "supporting_excerpt": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile. The mine operates in dusty desert conditions.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        },
+        {
+          "stage": "Case Study and Material Matching",
+          "path": "primary.candidate.dimensions.1.rationale",
+          "claim": "Potential similarity on use case.",
+          "kind": "inference",
+          "supporting_excerpt": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile. The mine operates in dusty desert conditions.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        },
+        {
+          "stage": "Case Study and Material Matching",
+          "path": "primary.candidate.dimensions.2.rationale",
+          "claim": "Potential similarity on operating context.",
+          "kind": "inference",
+          "supporting_excerpt": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile. The mine operates in dusty desert conditions.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        },
+        {
+          "stage": "Case Study and Material Matching",
+          "path": "primary.candidate.dimensions.3.rationale",
+          "claim": "Potential similarity on geography.",
+          "kind": "inference",
+          "supporting_excerpt": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile. The mine operates in dusty desert conditions.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        },
+        {
+          "stage": "Case Study and Material Matching",
+          "path": "primary.candidate.dimensions.4.rationale",
+          "claim": "Potential similarity on referral.",
+          "kind": "inference",
+          "supporting_excerpt": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile. The mine operates in dusty desert conditions.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        },
+        {
+          "stage": "Case Study and Material Matching",
+          "path": "primary.candidate.dimensions.5.rationale",
+          "claim": "Potential similarity on same company.",
+          "kind": "inference",
+          "supporting_excerpt": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile. The mine operates in dusty desert conditions.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        },
+        {
+          "stage": "Case Study and Material Matching",
+          "path": "primary.candidate.relevance",
+          "claim": "A relevant industrial inspection comparison; transfer requires technical discovery.",
+          "kind": "inference",
+          "supporting_excerpt": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile. The mine operates in dusty desert conditions.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        },
+        {
+          "stage": "AE Handoff Summary",
+          "path": "recommended_case_study.candidate.dimensions.0.rationale",
+          "claim": "Potential similarity on industry.",
+          "kind": "inference",
+          "supporting_excerpt": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile. The mine operates in dusty desert conditions.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        },
+        {
+          "stage": "AE Handoff Summary",
+          "path": "recommended_case_study.candidate.dimensions.1.rationale",
+          "claim": "Potential similarity on use case.",
+          "kind": "inference",
+          "supporting_excerpt": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile. The mine operates in dusty desert conditions.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        },
+        {
+          "stage": "AE Handoff Summary",
+          "path": "recommended_case_study.candidate.dimensions.2.rationale",
+          "claim": "Potential similarity on operating context.",
+          "kind": "inference",
+          "supporting_excerpt": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile. The mine operates in dusty desert conditions.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        },
+        {
+          "stage": "AE Handoff Summary",
+          "path": "recommended_case_study.candidate.dimensions.3.rationale",
+          "claim": "Potential similarity on geography.",
+          "kind": "inference",
+          "supporting_excerpt": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile. The mine operates in dusty desert conditions.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        },
+        {
+          "stage": "AE Handoff Summary",
+          "path": "recommended_case_study.candidate.dimensions.4.rationale",
+          "claim": "Potential similarity on referral.",
+          "kind": "inference",
+          "supporting_excerpt": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile. The mine operates in dusty desert conditions.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        },
+        {
+          "stage": "AE Handoff Summary",
+          "path": "recommended_case_study.candidate.dimensions.5.rationale",
+          "claim": "Potential similarity on same company.",
+          "kind": "inference",
+          "supporting_excerpt": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile. The mine operates in dusty desert conditions.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        },
+        {
+          "stage": "AE Handoff Summary",
+          "path": "recommended_case_study.candidate.relevance",
+          "claim": "A relevant industrial inspection comparison; transfer requires technical discovery.",
+          "kind": "inference",
+          "supporting_excerpt": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile. The mine operates in dusty desert conditions.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        }
+      ]
+    },
+    "S_ad3e7314ab2b": {
+      "source_id": "S_ad3e7314ab2b",
+      "url": "https://www.flytbase.com/__offline_fixture__/andes-integrator",
+      "title": "SYNTHETIC: ecosystem listing",
+      "retrieved_at": "2026-11-04T12:17:28.778957+00:00",
+      "publication_date": "2026-04-02",
+      "publication_date_basis": "fictional date supplied by offline fixture",
+      "access": "inspected_page",
+      "inspection_method": "OFFLINE: supplied fixture text; no page/PDF or search service was accessed.",
+      "text": "Andes Field Robotics is a FlytBase integration partner. It installs industrial drone docks and integrates inspection workflows.",
+      "search_context": "Synthetic search fixture, never retrieved from the web.",
+      "truncated": false,
+      "pages_read": 0,
+      "pages_total": 0,
+      "pages_retained": [],
+      "error": "",
+      "queries": [
+        "site:flytbase.com/partner \"Chile\" system integrator solution provider"
+      ],
+      "cited_by": [
+        {
+          "stage": "Partner Identification",
+          "path": "candidates.0.ecosystem_evidence",
+          "claim": "Andes Field Robotics is a FlytBase integration partner.",
+          "kind": "public",
+          "supporting_excerpt": "Andes Field Robotics is a FlytBase integration partner.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        },
+        {
+          "stage": "Partner Identification",
+          "path": "candidates.0.capabilities.0",
+          "claim": "It installs industrial drone docks and integrates inspection workflows.",
+          "kind": "public",
+          "supporting_excerpt": "It installs industrial drone docks and integrates inspection workflows.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        },
+        {
+          "stage": "Partner Identification",
+          "path": "implementation_candidates.0.ecosystem_evidence",
+          "claim": "Andes Field Robotics is a FlytBase integration partner.",
+          "kind": "public",
+          "supporting_excerpt": "Andes Field Robotics is a FlytBase integration partner.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        },
+        {
+          "stage": "Partner Identification",
+          "path": "implementation_candidates.0.capabilities.0",
+          "claim": "It installs industrial drone docks and integrates inspection workflows.",
+          "kind": "public",
+          "supporting_excerpt": "It installs industrial drone docks and integrates inspection workflows.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        },
+        {
+          "stage": "AE Handoff Summary",
+          "path": "routing.implementation_candidates.0.ecosystem_evidence",
+          "claim": "Andes Field Robotics is a FlytBase integration partner.",
+          "kind": "public",
+          "supporting_excerpt": "Andes Field Robotics is a FlytBase integration partner.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        },
+        {
+          "stage": "AE Handoff Summary",
+          "path": "routing.implementation_candidates.0.capabilities.0",
+          "claim": "It installs industrial drone docks and integrates inspection workflows.",
+          "kind": "public",
+          "supporting_excerpt": "It installs industrial drone docks and integrates inspection workflows.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        }
+      ]
+    },
+    "S_f2511add67e6": {
+      "source_id": "S_f2511add67e6",
+      "url": "https://andes-field.example/services",
+      "title": "Fictional integrator services",
+      "retrieved_at": "2026-11-04T12:17:28.778963+00:00",
+      "publication_date": "2026-04-02",
+      "publication_date_basis": "fictional date supplied by offline fixture",
+      "access": "inspected_page",
+      "inspection_method": "OFFLINE: supplied fixture text; no page/PDF or search service was accessed.",
+      "text": "Andes Field Robotics provides industrial drone installation and maintenance services in Chile. Current project capacity and availability are not published.",
+      "search_context": "Synthetic search fixture, never retrieved from the web.",
+      "truncated": false,
+      "pages_read": 0,
+      "pages_total": 0,
+      "pages_retained": [],
+      "error": "",
+      "queries": [
+        "site:flytbase.com/partner \"Chile\" system integrator solution provider"
+      ],
+      "cited_by": [
+        {
+          "stage": "Partner Identification",
+          "path": "candidates.0.geographic_coverage",
+          "claim": "Andes Field Robotics provides industrial drone installation and maintenance services in Chile.",
+          "kind": "public",
+          "supporting_excerpt": "Andes Field Robotics provides industrial drone installation and maintenance services in Chile.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        },
+        {
+          "stage": "Partner Identification",
+          "path": "implementation_candidates.0.geographic_coverage",
+          "claim": "Andes Field Robotics provides industrial drone installation and maintenance services in Chile.",
+          "kind": "public",
+          "supporting_excerpt": "Andes Field Robotics provides industrial drone installation and maintenance services in Chile.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        },
+        {
+          "stage": "AE Handoff Summary",
+          "path": "routing.implementation_candidates.0.geographic_coverage",
+          "claim": "Andes Field Robotics provides industrial drone installation and maintenance services in Chile.",
+          "kind": "public",
+          "supporting_excerpt": "Andes Field Robotics provides industrial drone installation and maintenance services in Chile.",
+          "limitation": "Citation linkage; consult stage groundedness flags for support assessment."
+        }
+      ]
+    }
+  },
+  "queries": {
+    "organisation": [
+      "\"AMX\" official board and management operations leadership governance Chile amx.example",
+      "site:sec.gov/Archives/edgar/data \"AMX\" 20-F organisational structure subsidiaries management 2025"
+    ],
+    "finance": [
+      "site:sec.gov/Archives/edgar/data \"AMX\" 20-F capital expenditures 2025 investment plan",
+      "\"AMX\" investor relations 2026 financial results earnings operating costs strategy"
+    ],
+    "current": [
+      "\"AMX\" official mining operational strategy announcements Chile 2026 news",
+      "site:flytbase.com \"AMX\" autonomous inspections existing deployment"
+    ],
+    "materials": [
+      "site:flytbase.com \"AMX\" mining customer deployment case study Looking for drone-based inspection for 3 large-scale, 24/7 lithium extraction sites",
+      "site:flytbase.com \"Cordillera Copper\" mining autonomous drones case study"
+    ],
+    "partners": [
+      "site:flytbase.com/partner \"Chile\" system integrator solution provider",
+      "site:flytbase.com/case-studies \"AMX\" Chile drone integration partner implementation"
+    ]
+  },
+  "usage": [],
+  "logs": [
+    {
+      "event": "source_fetch",
+      "source_id": "S_bfb758c8161e",
+      "access": "inspected_page",
+      "truncated": false
+    },
+    {
+      "event": "source_fetch",
+      "source_id": "S_8e054451f559",
+      "access": "inspected_page",
+      "truncated": false
+    },
+    {
+      "event": "source_fetch",
+      "source_id": "S_76c18676528a",
+      "access": "inspected_page",
+      "truncated": false
+    },
+    {
+      "event": "compact_account_research",
+      "at": "2026-11-04T12:17:28.698130+00:00",
+      "note": "one model synthesis call, same live inspected source registry",
+      "source_ids": [
+        "S_bfb758c8161e",
+        "S_8e054451f559",
+        "S_76c18676528a"
+      ]
+    },
+    {
+      "event": "source_fetch",
+      "source_id": "S_1d6dedcd234c",
+      "access": "inspected_page",
+      "truncated": false
+    },
+    {
+      "event": "source_fetch",
+      "source_id": "S_c42e69ffd517",
+      "access": "inspected_page",
+      "truncated": false
+    },
+    {
+      "event": "source_fetch",
+      "source_id": "S_ad3e7314ab2b",
+      "access": "inspected_page",
+      "truncated": false
+    },
+    {
+      "event": "source_fetch",
+      "source_id": "S_f2511add67e6",
+      "access": "inspected_page",
+      "truncated": false
+    },
+    {
+      "event": "run_finished",
+      "status": "complete",
+      "at": "2026-11-04T12:17:28.956998+00:00",
+      "source_fetch_attempts": 7
+    },
+    {
+      "event": "synthetic_submission_simulation",
+      "description": "SYNTHETIC OFFLINE SIMULATION: fictional companies, people, evidence and audit responses; not live research or acceptance evidence.",
+      "network_requests": 0
+    }
+  ],
+  "warnings": [
+    "SYNTHETIC OFFLINE SIMULATION: fictional companies, people, evidence and audit responses; not live research or acceptance evidence."
+  ],
+  "retrieval_cache": {
+    "_structured": {
+      "extraction": {
+        "fingerprint": "caf1a2179a5419699223f669d01fbd37858ed4980ac85f7798757f8d8e3cee72",
+        "output": {
+          "name": "Elena Morales",
+          "email": "elena@amx.example",
+          "title": "Head of Northern Operations",
+          "company": "Altiplano Minerals (AMX)",
+          "domain": "amx.example",
+          "geography": "Chile",
+          "industry": "mining",
+          "need": "Looking for drone-based inspection for 3 large-scale, 24/7 lithium extraction sites",
+          "referral": "Cordillera Copper",
+          "knowns": [
+            "Looking for drone-based inspection for 3 large-scale, 24/7 lithium extraction sites"
+          ],
+          "budget": {
+            "status": "unknown",
+            "evidence": [],
+            "uncertainty": "Not established by the enquiry.",
+            "questions": [
+              "Is there approved project funding or only a budget discussion?"
+            ]
+          },
+          "authority": {
+            "status": "unknown",
+            "evidence": [],
+            "uncertainty": "Not established by the enquiry.",
+            "questions": [
+              "Who owns the business case and final purchasing approval?"
+            ]
+          },
+          "need_dimension": {
+            "status": "confirmed",
+            "evidence": [
+              "Looking for drone-based inspection for 3 large-scale, 24/7 lithium extraction sites"
+            ],
+            "uncertainty": "Technical feasibility remains unverified.",
+            "questions": [
+              "Which inspections and acceptance criteria matter most?"
+            ]
+          },
+          "timeline": {
+            "status": "unknown",
+            "evidence": [],
+            "uncertainty": "Not established by the enquiry.",
+            "questions": [
+              "Which year is Q3, and when would a pilot decision be made?"
+            ]
+          },
+          "signals": [
+            {
+              "code": "need_fit",
+              "quote": "Looking for drone-based inspection for 3 large-scale, 24/7 lithium extraction sites"
+            },
+            {
+              "code": "operational_pain",
+              "quote": "Contracted crews are expensive and hazardous"
+            },
+            {
+              "code": "multiple_sites",
+              "quote": "3 large-scale"
+            },
+            {
+              "code": "continuous_operations",
+              "quote": "24/7"
+            },
+            {
+              "code": "senior_role",
+              "quote": "Head of Northern Operations"
+            },
+            {
+              "code": "referral",
+              "quote": "Referred by Cordillera Copper"
+            }
+          ],
+          "fit": "promising",
+          "fit_reason": "Explicit operational pain and multi-site inspection need; discovery still required."
+        },
+        "at": "2026-11-04T12:17:28.671111+00:00",
+        "note": "Schema-valid model response; factual validation remains separate."
+      },
+      "account research:compact": {
+        "fingerprint": "3c84c8f70f0dc02a152979da550b2831a754344e190b492ccc955f4b7031ebea",
+        "output": {
+          "topics": [
+            {
+              "name": "Organisation and reporting lines",
+              "claims": [
+                {
+                  "text": "AMX has separate Northern Operations and Industrial Products divisions.",
+                  "kind": "public",
+                  "evidence": [
+                    {
+                      "source_id": "S_bfb758c8161e",
+                      "quote": "AMX has separate Northern Operations and Industrial Products divisions."
+                    }
+                  ],
+                  "input_quote": "",
+                  "uncertainty": "",
+                  "financial_context": null,
+                  "event_date": ""
+                }
+              ],
+              "gaps": []
+            },
+            {
+              "name": "Budget and investment signals",
+              "claims": [
+                {
+                  "text": "AMX FY2025 group capital expenditure was USD 420 million and operating expenses were USD 910 million.",
+                  "kind": "public",
+                  "evidence": [
+                    {
+                      "source_id": "S_8e054451f559",
+                      "quote": "AMX FY2025 group capital expenditure was USD 420 million and operating expenses were USD 910 million."
+                    }
+                  ],
+                  "input_quote": "",
+                  "uncertainty": "",
+                  "financial_context": {
+                    "currency": "USD",
+                    "units": "million",
+                    "reporting_period": "FY2025",
+                    "publication_date": "2026-02-18",
+                    "scope": "group-wide spending, no drone project budget"
+                  },
+                  "event_date": ""
+                },
+                {
+                  "text": "The FY2025 technology programme invested USD 12 million in remote condition monitoring.",
+                  "kind": "public",
+                  "evidence": [
+                    {
+                      "source_id": "S_8e054451f559",
+                      "quote": "The FY2025 technology programme invested USD 12 million in remote condition monitoring."
+                    }
+                  ],
+                  "input_quote": "",
+                  "uncertainty": "",
+                  "financial_context": {
+                    "currency": "USD",
+                    "units": "million",
+                    "reporting_period": "FY2025",
+                    "publication_date": "2026-02-18",
+                    "scope": "group technology programme, no drone project allocation"
+                  },
+                  "event_date": ""
+                }
+              ],
+              "gaps": []
+            },
+            {
+              "name": "News and strategic announcements",
+              "claims": [
+                {
+                  "text": "AMX announced a remote condition-monitoring programme on 10 June 2026.",
+                  "kind": "public",
+                  "evidence": [
+                    {
+                      "source_id": "S_76c18676528a",
+                      "quote": "AMX announced a remote condition-monitoring programme on 10 June 2026."
+                    }
+                  ],
+                  "input_quote": "",
+                  "uncertainty": "",
+                  "financial_context": null,
+                  "event_date": ""
+                }
+              ],
+              "gaps": []
+            },
+            {
+              "name": "Investor priorities",
+              "claims": [
+                {
+                  "text": "Investor priorities are safer operations and disciplined expansion.",
+                  "kind": "public",
+                  "evidence": [
+                    {
+                      "source_id": "S_8e054451f559",
+                      "quote": "Investor priorities are safer operations and disciplined expansion."
+                    }
+                  ],
+                  "input_quote": "",
+                  "uncertainty": "",
+                  "financial_context": null,
+                  "event_date": ""
+                }
+              ],
+              "gaps": []
+            },
+            {
+              "name": "Corporate changes and customer relationships",
+              "claims": [
+                {
+                  "text": "Northern Operations remains a separate division; no merger or ownership change is described in this update.",
+                  "kind": "public",
+                  "evidence": [
+                    {
+                      "source_id": "S_76c18676528a",
+                      "quote": "Northern Operations remains a separate division; no merger or ownership change is described in this update."
+                    }
+                  ],
+                  "input_quote": "",
+                  "uncertainty": "",
+                  "financial_context": null,
+                  "event_date": ""
+                }
+              ],
+              "gaps": []
+            }
+          ],
+          "positioning": [
+            {
+              "text": "Position a discovery-led reliability pilot with explicit site acceptance criteria; company spending is only a signal.",
+              "kind": "inference",
+              "evidence": [],
+              "input_quote": "",
+              "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+              "financial_context": null,
+              "event_date": ""
+            }
+          ],
+          "stakeholder_hypothesis": [
+            {
+              "text": "Operations may sponsor the business case alongside reliability, IT and procurement; Elena's manager and approval authority remain unknown.",
+              "kind": "inference",
+              "evidence": [],
+              "input_quote": "",
+              "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+              "financial_context": null,
+              "event_date": ""
+            }
+          ],
+          "conflicts": []
+        },
+        "at": "2026-11-04T12:17:28.693407+00:00",
+        "note": "Schema-valid model response; factual validation remains separate."
+      },
+      "audit:account": {
+        "fingerprint": "b288b07cfad98a2f618cfe81d2bda1028d6560d3a244ff5e85c68272064bcc2a",
+        "output": {
+          "findings": []
+        },
+        "at": "2026-11-04T12:17:28.700564+00:00",
+        "note": "Schema-valid model response; factual validation remains separate."
+      },
+      "material comparison": {
+        "fingerprint": "abdf2e931624686185a3bffb9944605d5fb5656f68452f1a004c43450bf59978",
+        "output": {
+          "candidates": [
+            {
+              "title": "SYNTHETIC: AMX iodine inspection",
+              "source_id": "S_1d6dedcd234c",
+              "dimensions": [
+                {
+                  "dimension": "industry",
+                  "matched": true,
+                  "rationale": {
+                    "text": "Potential similarity on industry.",
+                    "kind": "inference",
+                    "evidence": [
+                      {
+                        "source_id": "S_1d6dedcd234c",
+                        "quote": "AMX uses FlytBase thermal inspection at its iodine operations in Chile."
+                      }
+                    ],
+                    "input_quote": "",
+                    "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                    "financial_context": null,
+                    "event_date": ""
+                  }
+                },
+                {
+                  "dimension": "use_case",
+                  "matched": true,
+                  "rationale": {
+                    "text": "Potential similarity on use case.",
+                    "kind": "inference",
+                    "evidence": [
+                      {
+                        "source_id": "S_1d6dedcd234c",
+                        "quote": "AMX uses FlytBase thermal inspection at its iodine operations in Chile."
+                      }
+                    ],
+                    "input_quote": "",
+                    "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                    "financial_context": null,
+                    "event_date": ""
+                  }
+                },
+                {
+                  "dimension": "operating_context",
+                  "matched": false,
+                  "rationale": {
+                    "text": "Potential similarity on operating context.",
+                    "kind": "inference",
+                    "evidence": [
+                      {
+                        "source_id": "S_1d6dedcd234c",
+                        "quote": "AMX uses FlytBase thermal inspection at its iodine operations in Chile."
+                      }
+                    ],
+                    "input_quote": "",
+                    "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                    "financial_context": null,
+                    "event_date": ""
+                  }
+                },
+                {
+                  "dimension": "geography",
+                  "matched": true,
+                  "rationale": {
+                    "text": "Potential similarity on geography.",
+                    "kind": "inference",
+                    "evidence": [
+                      {
+                        "source_id": "S_1d6dedcd234c",
+                        "quote": "AMX uses FlytBase thermal inspection at its iodine operations in Chile."
+                      }
+                    ],
+                    "input_quote": "",
+                    "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                    "financial_context": null,
+                    "event_date": ""
+                  }
+                },
+                {
+                  "dimension": "referral",
+                  "matched": false,
+                  "rationale": {
+                    "text": "Potential similarity on referral.",
+                    "kind": "inference",
+                    "evidence": [
+                      {
+                        "source_id": "S_1d6dedcd234c",
+                        "quote": "AMX uses FlytBase thermal inspection at its iodine operations in Chile."
+                      }
+                    ],
+                    "input_quote": "",
+                    "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                    "financial_context": null,
+                    "event_date": ""
+                  }
+                },
+                {
+                  "dimension": "same_company",
+                  "matched": true,
+                  "rationale": {
+                    "text": "Potential similarity on same company.",
+                    "kind": "inference",
+                    "evidence": [
+                      {
+                        "source_id": "S_1d6dedcd234c",
+                        "quote": "AMX uses FlytBase thermal inspection at its iodine operations in Chile."
+                      }
+                    ],
+                    "input_quote": "",
+                    "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                    "financial_context": null,
+                    "event_date": ""
+                  }
+                }
+              ],
+              "relevance": {
+                "text": "A relevant industrial inspection comparison; transfer requires technical discovery.",
+                "kind": "inference",
+                "evidence": [
+                  {
+                    "source_id": "S_1d6dedcd234c",
+                    "quote": "AMX uses FlytBase thermal inspection at its iodine operations in Chile."
+                  }
+                ],
+                "input_quote": "",
+                "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                "financial_context": null,
+                "event_date": ""
+              },
+              "limitations": [
+                "Fictional evidence only; a different mineral, site or outcome does not establish lithium feasibility."
+              ],
+              "own_company_expansion_assessment": "AMX iodine deployment does not establish lithium-site coverage; confirm whether this is an expansion."
+            },
+            {
+              "title": "SYNTHETIC: Cordillera Copper inspection",
+              "source_id": "S_c42e69ffd517",
+              "dimensions": [
+                {
+                  "dimension": "industry",
+                  "matched": true,
+                  "rationale": {
+                    "text": "Potential similarity on industry.",
+                    "kind": "inference",
+                    "evidence": [
+                      {
+                        "source_id": "S_c42e69ffd517",
+                        "quote": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile. The mine operates in dusty desert conditions."
+                      }
+                    ],
+                    "input_quote": "",
+                    "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                    "financial_context": null,
+                    "event_date": ""
+                  }
+                },
+                {
+                  "dimension": "use_case",
+                  "matched": true,
+                  "rationale": {
+                    "text": "Potential similarity on use case.",
+                    "kind": "inference",
+                    "evidence": [
+                      {
+                        "source_id": "S_c42e69ffd517",
+                        "quote": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile. The mine operates in dusty desert conditions."
+                      }
+                    ],
+                    "input_quote": "",
+                    "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                    "financial_context": null,
+                    "event_date": ""
+                  }
+                },
+                {
+                  "dimension": "operating_context",
+                  "matched": true,
+                  "rationale": {
+                    "text": "Potential similarity on operating context.",
+                    "kind": "inference",
+                    "evidence": [
+                      {
+                        "source_id": "S_c42e69ffd517",
+                        "quote": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile. The mine operates in dusty desert conditions."
+                      }
+                    ],
+                    "input_quote": "",
+                    "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                    "financial_context": null,
+                    "event_date": ""
+                  }
+                },
+                {
+                  "dimension": "geography",
+                  "matched": true,
+                  "rationale": {
+                    "text": "Potential similarity on geography.",
+                    "kind": "inference",
+                    "evidence": [
+                      {
+                        "source_id": "S_c42e69ffd517",
+                        "quote": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile. The mine operates in dusty desert conditions."
+                      }
+                    ],
+                    "input_quote": "",
+                    "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                    "financial_context": null,
+                    "event_date": ""
+                  }
+                },
+                {
+                  "dimension": "referral",
+                  "matched": true,
+                  "rationale": {
+                    "text": "Potential similarity on referral.",
+                    "kind": "inference",
+                    "evidence": [
+                      {
+                        "source_id": "S_c42e69ffd517",
+                        "quote": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile. The mine operates in dusty desert conditions."
+                      }
+                    ],
+                    "input_quote": "",
+                    "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                    "financial_context": null,
+                    "event_date": ""
+                  }
+                },
+                {
+                  "dimension": "same_company",
+                  "matched": false,
+                  "rationale": {
+                    "text": "Potential similarity on same company.",
+                    "kind": "inference",
+                    "evidence": [
+                      {
+                        "source_id": "S_c42e69ffd517",
+                        "quote": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile. The mine operates in dusty desert conditions."
+                      }
+                    ],
+                    "input_quote": "",
+                    "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                    "financial_context": null,
+                    "event_date": ""
+                  }
+                }
+              ],
+              "relevance": {
+                "text": "A relevant industrial inspection comparison; transfer requires technical discovery.",
+                "kind": "inference",
+                "evidence": [
+                  {
+                    "source_id": "S_c42e69ffd517",
+                    "quote": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile. The mine operates in dusty desert conditions."
+                  }
+                ],
+                "input_quote": "",
+                "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                "financial_context": null,
+                "event_date": ""
+              },
+              "limitations": [
+                "Fictional evidence only; a different mineral, site or outcome does not establish lithium feasibility."
+              ],
+              "own_company_expansion_assessment": "AMX iodine deployment does not establish lithium-site coverage; confirm whether this is an expansion."
+            }
+          ],
+          "referral_findings": [
+            {
+              "text": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile.",
+              "kind": "public",
+              "evidence": [
+                {
+                  "source_id": "S_c42e69ffd517",
+                  "quote": "Cordillera Copper uses FlytBase for drone inspection at a remote copper mine in Chile."
+                }
+              ],
+              "input_quote": "",
+              "uncertainty": "",
+              "financial_context": null,
+              "event_date": ""
+            }
+          ],
+          "gaps": []
+        },
+        "at": "2026-11-04T12:17:28.726286+00:00",
+        "note": "Schema-valid model response; factual validation remains separate."
+      },
+      "audit:materials": {
+        "fingerprint": "dc7da5de773687b22ea0e6ccdbcf9678770b407f5d9ce8cd44db8b6b2ecf002c",
+        "output": {
+          "findings": []
+        },
+        "at": "2026-11-04T12:17:28.736469+00:00",
+        "note": "Schema-valid model response; factual validation remains separate."
+      },
+      "partner routing": {
+        "fingerprint": "d1d99980bf6d5d909f7cdd470f2e955b74251217861cc82eb751595a8ee1e6e7",
+        "output": {
+          "recommended_motion": "direct_ae",
+          "rationale": [
+            {
+              "text": "Retain AE ownership for multi-site enterprise discovery; use evidenced local implementation support after capacity checks.",
+              "kind": "inference",
+              "evidence": [],
+              "input_quote": "",
+              "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+              "financial_context": null,
+              "event_date": ""
+            }
+          ],
+          "candidates": [
+            {
+              "name": "Andes Field Robotics",
+              "partner_type": "Industrial drone systems integrator",
+              "ecosystem_evidence": {
+                "text": "Andes Field Robotics is a FlytBase integration partner.",
+                "kind": "public",
+                "evidence": [
+                  {
+                    "source_id": "S_ad3e7314ab2b",
+                    "quote": "Andes Field Robotics is a FlytBase integration partner."
+                  }
+                ],
+                "input_quote": "",
+                "uncertainty": "",
+                "financial_context": null,
+                "event_date": ""
+              },
+              "capabilities": [
+                {
+                  "text": "It installs industrial drone docks and integrates inspection workflows.",
+                  "kind": "public",
+                  "evidence": [
+                    {
+                      "source_id": "S_ad3e7314ab2b",
+                      "quote": "It installs industrial drone docks and integrates inspection workflows."
+                    }
+                  ],
+                  "input_quote": "",
+                  "uncertainty": "",
+                  "financial_context": null,
+                  "event_date": ""
+                }
+              ],
+              "geographic_coverage": {
+                "text": "Andes Field Robotics provides industrial drone installation and maintenance services in Chile.",
+                "kind": "public",
+                "evidence": [
+                  {
+                    "source_id": "S_f2511add67e6",
+                    "quote": "Andes Field Robotics provides industrial drone installation and maintenance services in Chile."
+                  }
+                ],
+                "input_quote": "",
+                "uncertainty": "",
+                "financial_context": null,
+                "event_date": ""
+              },
+              "availability": "Not verified; confirm capacity and site access before assigning work.",
+              "limitations": [
+                "Coverage does not prove present availability or site-specific capability."
+              ]
+            }
+          ],
+          "proposed_partner_name": "",
+          "required_partner_type": "Industrial drone systems integrator",
+          "commercial_owner": "FlytBase Account Executive",
+          "implementation_owner": "Local support after validation",
+          "next_action": "AE schedules discovery and separately verifies integrator capacity, site conditions and implementation scope.",
+          "gaps": []
+        },
+        "at": "2026-11-04T12:17:28.797403+00:00",
+        "note": "Schema-valid model response; factual validation remains separate."
+      },
+      "audit:routing": {
+        "fingerprint": "dc86548acab7c0b7d1ee40b3862bf4836334da24e3c834da261a5ef632301aaf",
+        "output": {
+          "findings": []
+        },
+        "at": "2026-11-04T12:17:28.813827+00:00",
+        "note": "Schema-valid model response; factual validation remains separate."
+      },
+      "email drafts": {
+        "fingerprint": "cfe1bed0f37c794de22986d87267211185d6fd68de4a67952fc452e0e0624239",
+        "output": {
+          "drafts": [
+            {
+              "branch": "initial",
+              "subject": "Your three-site inspection enquiry",
+              "paragraphs": [
+                {
+                  "text": "Thank you, Elena. Reducing hazardous inspection work across three continuously operating sites is a useful discovery starting point.",
+                  "kind": "inference",
+                  "evidence": [],
+                  "input_quote": "",
+                  "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                  "financial_context": null,
+                  "event_date": ""
+                },
+                {
+                  "text": "Investor priorities are safer operations and disciplined expansion.",
+                  "kind": "public",
+                  "evidence": [
+                    {
+                      "source_id": "S_8e054451f559",
+                      "quote": "Investor priorities are safer operations and disciplined expansion."
+                    }
+                  ],
+                  "input_quote": "",
+                  "uncertainty": "",
+                  "financial_context": null,
+                  "event_date": ""
+                },
+                {
+                  "text": "Could we schedule 20 minutes to identify the pilot owner and clarify which year Q3 refers to?",
+                  "kind": "inference",
+                  "evidence": [],
+                  "input_quote": "",
+                  "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                  "financial_context": null,
+                  "event_date": ""
+                }
+              ],
+              "trigger": "New inbound enquiry",
+              "why_this_message": "Open with operational priorities and two buying-process unknowns.",
+              "if_buyer_responds": "Replace the hypothetical branch with their actual information; update discovery questions and schedule the agreed next step.",
+              "hypothetical": false
+            },
+            {
+              "branch": "no_reply",
+              "subject": "A focused inspection discovery call",
+              "paragraphs": [
+                {
+                  "text": "Following up on your inspection enquiry: which recurring inspection would be most useful to review first?",
+                  "kind": "inference",
+                  "evidence": [],
+                  "input_quote": "",
+                  "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                  "financial_context": null,
+                  "event_date": ""
+                },
+                {
+                  "text": "Investor priorities are safer operations and disciplined expansion.",
+                  "kind": "public",
+                  "evidence": [
+                    {
+                      "source_id": "S_8e054451f559",
+                      "quote": "Investor priorities are safer operations and disciplined expansion."
+                    }
+                  ],
+                  "input_quote": "",
+                  "uncertainty": "",
+                  "financial_context": null,
+                  "event_date": ""
+                },
+                {
+                  "text": "If helpful, I can send a short discovery agenda before we choose a time.",
+                  "kind": "inference",
+                  "evidence": [],
+                  "input_quote": "",
+                  "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                  "financial_context": null,
+                  "event_date": ""
+                }
+              ],
+              "trigger": "Hypothetical: five business days without a reply",
+              "why_this_message": "Offer a smaller next step without claiming a response.",
+              "if_buyer_responds": "Replace the hypothetical branch with their actual information; update discovery questions and schedule the agreed next step.",
+              "hypothetical": true
+            },
+            {
+              "branch": "interested",
+              "subject": "Agenda for an inspection discussion",
+              "paragraphs": [
+                {
+                  "text": "For a discussion, I suggest reviewing inspection tasks, connectivity, safety constraints and pilot acceptance criteria.",
+                  "kind": "inference",
+                  "evidence": [],
+                  "input_quote": "",
+                  "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                  "financial_context": null,
+                  "event_date": ""
+                },
+                {
+                  "text": "Investor priorities are safer operations and disciplined expansion.",
+                  "kind": "public",
+                  "evidence": [
+                    {
+                      "source_id": "S_8e054451f559",
+                      "quote": "Investor priorities are safer operations and disciplined expansion."
+                    }
+                  ],
+                  "input_quote": "",
+                  "uncertainty": "",
+                  "financial_context": null,
+                  "event_date": ""
+                },
+                {
+                  "text": "Who from reliability and IT should join, and which time suits you?",
+                  "kind": "inference",
+                  "evidence": [],
+                  "input_quote": "",
+                  "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                  "financial_context": null,
+                  "event_date": ""
+                }
+              ],
+              "trigger": "Hypothetical: buyer expresses interest in a discussion",
+              "why_this_message": "Turn interest into a concrete discovery meeting.",
+              "if_buyer_responds": "Replace the hypothetical branch with their actual information; update discovery questions and schedule the agreed next step.",
+              "hypothetical": true
+            },
+            {
+              "branch": "budget_clarification",
+              "subject": "Aligning discovery with your budget process",
+              "paragraphs": [
+                {
+                  "text": "We can align technical discovery with your budget discussion without assuming project approval.",
+                  "kind": "inference",
+                  "evidence": [],
+                  "input_quote": "",
+                  "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                  "financial_context": null,
+                  "event_date": ""
+                },
+                {
+                  "text": "Investor priorities are safer operations and disciplined expansion.",
+                  "kind": "public",
+                  "evidence": [
+                    {
+                      "source_id": "S_8e054451f559",
+                      "quote": "Investor priorities are safer operations and disciplined expansion."
+                    }
+                  ],
+                  "input_quote": "",
+                  "uncertainty": "",
+                  "financial_context": null,
+                  "event_date": ""
+                },
+                {
+                  "text": "Which year and approval milestone should we work toward, and who owns the business case?",
+                  "kind": "inference",
+                  "evidence": [],
+                  "input_quote": "",
+                  "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                  "financial_context": null,
+                  "event_date": ""
+                }
+              ],
+              "trigger": "Hypothetical: buyer clarifies budget timing but funding is unapproved",
+              "why_this_message": "Respect the buying process without treating a meeting as funding.",
+              "if_buyer_responds": "Replace the hypothetical branch with their actual information; update discovery questions and schedule the agreed next step.",
+              "hypothetical": true
+            },
+            {
+              "branch": "stakeholder_referral",
+              "subject": "Connecting with the inspection project owner",
+              "paragraphs": [
+                {
+                  "text": "If another colleague owns inspection transformation, I can share a short summary of the three-site need for an introduction.",
+                  "kind": "inference",
+                  "evidence": [],
+                  "input_quote": "",
+                  "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                  "financial_context": null,
+                  "event_date": ""
+                },
+                {
+                  "text": "Investor priorities are safer operations and disciplined expansion.",
+                  "kind": "public",
+                  "evidence": [
+                    {
+                      "source_id": "S_8e054451f559",
+                      "quote": "Investor priorities are safer operations and disciplined expansion."
+                    }
+                  ],
+                  "input_quote": "",
+                  "uncertainty": "",
+                  "financial_context": null,
+                  "event_date": ""
+                },
+                {
+                  "text": "Would you introduce the project owner so we can confirm pilot scope and the decision process?",
+                  "kind": "inference",
+                  "evidence": [],
+                  "input_quote": "",
+                  "uncertainty": "Recommendation/hypothesis; confirm through discovery.",
+                  "financial_context": null,
+                  "event_date": ""
+                }
+              ],
+              "trigger": "Hypothetical: buyer refers us to another stakeholder",
+              "why_this_message": "Establish ownership without inventing the referred person's identity.",
+              "if_buyer_responds": "Replace the hypothetical branch with their actual information; update discovery questions and schedule the agreed next step.",
+              "hypothetical": true
+            }
+          ],
+          "limitations": []
+        },
+        "at": "2026-11-04T12:17:28.863225+00:00",
+        "note": "Schema-valid model response; factual validation remains separate."
+      },
+      "audit:emails": {
+        "fingerprint": "6dad9012f23b345df7bd2de2fdb615fb331eed105ed9cdbddfe1d3ce3c3b1867",
+        "output": {
+          "findings": []
+        },
+        "at": "2026-11-04T12:17:28.881467+00:00",
+        "note": "Schema-valid model response; factual validation remains separate."
+      }
+    },
+    "organisation": {
+      "queries": [
+        "\"AMX\" official board and management operations leadership governance Chile amx.example",
+        "site:sec.gov/Archives/edgar/data \"AMX\" 20-F organisational structure subsidiaries management 2025"
+      ],
+      "source_ids": [
+        "S_bfb758c8161e"
+      ],
+      "warnings": [],
+      "at": "2026-11-04T12:17:28.683561+00:00"
+    },
+    "finance": {
+      "queries": [
+        "site:sec.gov/Archives/edgar/data \"AMX\" 20-F capital expenditures 2025 investment plan",
+        "\"AMX\" investor relations 2026 financial results earnings operating costs strategy"
+      ],
+      "source_ids": [
+        "S_8e054451f559"
+      ],
+      "warnings": [],
+      "at": "2026-11-04T12:17:28.687255+00:00"
+    },
+    "current": {
+      "queries": [
+        "\"AMX\" official mining operational strategy announcements Chile 2026 news",
+        "site:flytbase.com \"AMX\" autonomous inspections existing deployment"
+      ],
+      "source_ids": [
+        "S_76c18676528a"
+      ],
+      "warnings": [],
+      "at": "2026-11-04T12:17:28.691807+00:00"
+    },
+    "materials": {
+      "queries": [
+        "site:flytbase.com \"AMX\" mining customer deployment case study Looking for drone-based inspection for 3 large-scale, 24/7 lithium extraction sites",
+        "site:flytbase.com \"Cordillera Copper\" mining autonomous drones case study"
+      ],
+      "source_ids": [
+        "S_1d6dedcd234c",
+        "S_c42e69ffd517"
+      ],
+      "warnings": [],
+      "at": "2026-11-04T12:17:28.724495+00:00"
+    },
+    "partners": {
+      "queries": [
+        "site:flytbase.com/partner \"Chile\" system integrator solution provider",
+        "site:flytbase.com/case-studies \"AMX\" Chile drone integration partner implementation"
+      ],
+      "source_ids": [
+        "S_ad3e7314ab2b",
+        "S_f2511add67e6"
+      ],
+      "warnings": [],
+      "at": "2026-11-04T12:17:28.795856+00:00"
+    }
+  },
+  "followup_updates": []
+}

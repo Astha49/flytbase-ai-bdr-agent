@@ -1,0 +1,23 @@
+.venv/
+.localtools/
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+__pycache__/
+.pytest_cache/
+*.py[cod]
+*.pdf
+tmp/
+runs/
+*.log
+dist/
+github-upload/
+github-upload.zip
+/MANIFEST.sha256
+*.pending
+*.backup
+*.before-*
+# Local research notes include the proprietary assignment enquiry/recipient;
+# use approved public source links, not the private research pack, in repositories.
+data/research/*_evidence_pack.json
