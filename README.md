@@ -1,6 +1,4 @@
-# AETHER / FlytBase — Inbound BDR Intelligence v7
-
-A dark, information-first interface to the genuine six-stage FlytBase inbound agent.
+# AETHER / FlytBase — Inbound BDR Intelligence 
 
 **Quick start (Windows / PowerShell)**:
 
@@ -14,4 +12,3 @@ The v6 release removes distracting heading anchors, repairs email-editor clippin
 
 **Known limitations:** The new-enquiry path is source-code connected and tested offline but has not been live verified for a second company. Streamlit reruns and remote source lookups may still take time. The app is a sales workflow for FlytBase prospects, not a general-purpose search engine. No customer messages are automatically sent.
 
-**v7 sidebar fix:** a persistent accessible navigation toggle (`☰`/`‹`) is present even when the Streamlit sidebar is collapsed. See [AETHER_V7_README.md](AETHER_V7_README.md).
